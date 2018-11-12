@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import uk.gergely.kiss.data.provider.model.UserVO;
-import uk.gergely.kiss.data.provider.repositories.UserRepository;
+import uk.gergely.kiss.data.provider.model.administration.UserVO;
+import uk.gergely.kiss.data.provider.repositories.administration.UserRepository;
+import uk.gergely.kiss.data.provider.rest.api.resources.APIConstants;
 
 @Controller
-@RequestMapping(path="/demo")
+@RequestMapping(path=APIConstants.USER_PATH)
 public class UserAPI {
+		
 	@Autowired
 	private UserRepository userRepository;
 	
