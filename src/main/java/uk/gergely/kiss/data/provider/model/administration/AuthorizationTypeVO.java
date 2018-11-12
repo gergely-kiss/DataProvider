@@ -1,11 +1,16 @@
 package uk.gergely.kiss.data.provider.model.administration;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,14 +25,14 @@ public class AuthorizationTypeVO {
 	private String hostReference;
 	@Column
 	private String name;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id")
-	private RoleVO roleVO;
+	private List<RoleVO> roleVOList;
 	
 	@Override
 	public String toString() {
-		return "AuthorizationTypeVO [id=" + id + ", hostReference=" + hostReference + ", name=" + name + ", roleVO="
-				+ roleVO + "]";
+		return "AuthorizationTypeVO [id=" + id + ", hostReference=" + hostReference + ", name=" + name + ", roleVOList="
+				+ roleVOList + "]";
 	}
 	public int getId() {
 		return id;
@@ -47,10 +52,11 @@ public class AuthorizationTypeVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public RoleVO getRoleVO() {
-		return roleVO;
+	public List<RoleVO> getRoleVOList() {
+		return roleVOList;
 	}
-	public void setRoleVO(RoleVO roleVO) {
-		this.roleVO = roleVO;
+	public void setRoleVOList(List<RoleVO> roleVOList) {
+		this.roleVOList = roleVOList;
 	}
+
 }
