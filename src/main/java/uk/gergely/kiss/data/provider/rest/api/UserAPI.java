@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import uk.gergely.kiss.data.provider.model.administration.UserVO;
-import uk.gergely.kiss.data.provider.repositories.administration.UserRepository;
+import uk.gergely.kiss.data.provider.repositories.administration.UserVORepository;
 import uk.gergely.kiss.data.provider.rest.api.resources.APIConstants;
 
 @Controller
@@ -17,7 +17,7 @@ import uk.gergely.kiss.data.provider.rest.api.resources.APIConstants;
 public class UserAPI {
 		
 	@Autowired
-	private UserRepository userRepository;
+	private UserVORepository userRepository;
 	
 	@PostMapping(path="/add") // Map ONLY GET Requests
 	public @ResponseBody String addNewUser (@RequestParam String name
