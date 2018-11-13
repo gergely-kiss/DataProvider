@@ -9,8 +9,8 @@ import uk.gergely.kiss.data.provider.rest.api.service.UserAPIService;
 @Controller
 @RequestMapping(path=APIConstants.USER_PATH)
 public class UserAPI {
-		
+
 	@Autowired
-	private UserAPIService userAPIService;
+	UserAPIService userAPIService;
 	
 }
