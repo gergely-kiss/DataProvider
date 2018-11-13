@@ -8,6 +8,13 @@ public class AuthorizationType {
 	private String description;
 	private List<RolePermission> rolePermissionList;;
 
+	@Override
+	public String toString() {
+		return new StringBuilder().append("AuthorizationType [name=" + name + ", description=" + description + ", rolePermissionList="
+				+ rolePermissionList + "]").toString();
+		
+	}
+
 	public String getName() {
 		return name;
 	}

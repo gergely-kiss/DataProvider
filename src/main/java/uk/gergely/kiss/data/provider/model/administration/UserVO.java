@@ -24,7 +24,7 @@ public class UserVO {
 	private String email;
 	
 	@OneToOne
-	@JoinColumn(name = "user_name")
+	@JoinColumn(name = "id")
 	private UserNameVO userNameVO;
 	
 	

@@ -15,16 +15,18 @@ import uk.gergely.kiss.data.provider.repositories.administration.AuthorizedUserV
 public class AuthorizedUserServiceImpl implements AuthorizedUserService {
 	@Autowired
 	AuthorizedUserVORepository repo;
-	
+
 	@Autowired
 	AuthorizedUserVOToAuthorizedUserConvertUtil converter;
-	
-	private final static Logger LOGGER = Logger.getLogger(String.valueOf(AuthorizedUserService.class));
 
+	private final static Logger LOGGER = Logger.getLogger(String.valueOf(AuthorizedUserService.class));
 
 	@Override
 	public List<AuthorizedUser> getAuthorizedUserList() {
+		LOGGER.info("getAuthorizedUserList was called");
 		List<AuthorizedUserVO> authorizedUserVOList = (List<AuthorizedUserVO>) repo.findAll();
-		
-		return converter.convert(authorizedUserVOList);
-	}}
+		LOGGER.info("getAuthorizedUserList: authorizedUserVOList: " + authorizedUserVOList);
+		List<AuthorizedUser> authorizedUser= converter.convert(authorizedUserVOList); 
+		return authorizedUser;
+	}
+}

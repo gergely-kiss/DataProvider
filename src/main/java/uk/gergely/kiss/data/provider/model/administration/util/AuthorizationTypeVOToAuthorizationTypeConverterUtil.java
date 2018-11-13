@@ -2,6 +2,8 @@ package uk.gergely.kiss.data.provider.model.administration.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,12 +15,13 @@ import uk.gergely.kiss.data.provider.service.administration.AuthorizationTypeVOU
 
 @Component
 public class AuthorizationTypeVOToAuthorizationTypeConverterUtil {
-
+	private final static Logger LOGGER = Logger
+			.getLogger(String.valueOf(AuthorizationTypeVOToAuthorizationTypeConverterUtil.class));
 	@Autowired
 	AuthorizationTypeVOUserRoleVOPermissionVOService authorizationTypeVOUserRoleVOPermissionVOService;
 
 	public AuthorizationType convert(AuthorizationTypeVO authorizationTypeVO) {
-		
+		LOGGER.info("convert was called with authorizationTypeVO: " + authorizationTypeVO);
 		AuthorizationType authorizationType = new AuthorizationType();
 		authorizationType.setName(authorizationTypeVO.getName());
 		authorizationType.setDescription(authorizationTypeVO.getDescription());
@@ -37,6 +40,8 @@ public class AuthorizationTypeVOToAuthorizationTypeConverterUtil {
 		}
 
 		authorizationType.setRolePermissionList(userRolePermission);
+		LOGGER.info("authorizationTypeVO: " + authorizationTypeVO
+				+ " was converted to authorizationType: " + authorizationType);
 		return authorizationType;
 	}
 }

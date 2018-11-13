@@ -13,17 +13,17 @@ public class AuthorizedUserVO {
 
 	@Id
 	private Integer id;
+
 	@Column(name = "host_reference")
 	private String hostReference;
 	private String salt;
 	private String password;
-	
+
 	@OneToOne
-	@JoinColumn(name = "user_name")
+	@JoinColumn(name = "id")
 	private UserNameVO userNameVO;
-	
 	@OneToOne
-	@JoinColumn(name = "authorization_type_name")
+	@JoinColumn(name = "id")
 	private AuthorizationTypeVO authorizationTypeVO;
 
 	public Integer getId() {
@@ -73,6 +73,5 @@ public class AuthorizedUserVO {
 	public void setAuthorizationTypeVO(AuthorizationTypeVO authorizationTypeVO) {
 		this.authorizationTypeVO = authorizationTypeVO;
 	}
-	
-	
+
 }

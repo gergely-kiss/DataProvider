@@ -2,18 +2,24 @@ package uk.gergely.kiss.data.provider.model.administration.util.model;
 
 public class AuthorizedUser {
 
-	private String hostReference;
+	private String id;
 	private String salt;
 	private String password;
 	private String userName;
 	private AuthorizationType type;
 
-	public String getHostReference() {
-		return hostReference;
+	@Override
+	public String toString() {
+		return new StringBuilder().append("AuthorizedUser: [id=" + id + ", salt=" + salt + ", password=" + password
+				+ ", userName=" + userName + ", type=" + type + "]").toString();
 	}
 
-	public void setHostReference(String hostReference) {
-		this.hostReference = hostReference;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getSalt() {
