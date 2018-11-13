@@ -65,4 +65,14 @@ public class AuthorizedUserVO {
 	public void setUserNameVO(UserNameVO userNameVO) {
 		this.userNameVO = userNameVO;
 	}
+
+	public AuthorizationTypeVO getAuthorizationTypeVO() {
+		return authorizationTypeVO;
+	}
+
+	public void setAuthorizationTypeVO(AuthorizationTypeVO authorizationTypeVO) {
+		this.authorizationTypeVO = authorizationTypeVO;
+	}
+	
+	
 }

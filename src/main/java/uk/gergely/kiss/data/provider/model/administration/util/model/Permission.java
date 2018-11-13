@@ -1,6 +1,6 @@
 package uk.gergely.kiss.data.provider.model.administration.util.model;
 
-public class Role {
+public class Permission {
 
 	private String name;
 	private String description;

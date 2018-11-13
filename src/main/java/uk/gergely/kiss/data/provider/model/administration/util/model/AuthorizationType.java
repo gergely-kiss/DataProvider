@@ -6,7 +6,7 @@ public class AuthorizationType {
 
 	private String name;
 	private String description;
-	private List<Role> roleList;
+	private List<RolePermission> rolePermissionList;;
 
 	public String getName() {
 		return name;
@@ -24,12 +24,12 @@ public class AuthorizationType {
 		this.description = description;
 	}
 
-	public List<Role> getRoleList() {
-		return roleList;
+	public List<RolePermission> getRolePermissionList() {
+		return rolePermissionList;
 	}
 
-	public void setRoleList(List<Role> roleList) {
-		this.roleList = roleList;
+	public void setRolePermissionList(List<RolePermission> rolePermissionList) {
+		this.rolePermissionList = rolePermissionList;
 	}
 
 }
