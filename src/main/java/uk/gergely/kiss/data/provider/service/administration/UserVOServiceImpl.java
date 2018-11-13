@@ -9,8 +9,8 @@ import uk.gergely.kiss.data.provider.model.administration.UserVO;
 import uk.gergely.kiss.data.provider.repositories.administration.UserVORepository;
 
 @Service
-public class UserServiceImpl implements UserService {
-	Logger LOGGER = Logger.getLogger(String.valueOf(UserService.class));
+public class UserVOServiceImpl implements UserVOService {
+	Logger LOGGER = Logger.getLogger(String.valueOf(UserVOService.class));
 
 	@Autowired
 	UserVORepository userVORepository;

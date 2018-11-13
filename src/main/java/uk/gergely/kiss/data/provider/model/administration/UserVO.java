@@ -6,9 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "host_reference" }))
 public class UserVO {
 
 	@Id
@@ -21,6 +22,7 @@ public class UserVO {
 	private String lastName;
 	@Column(name = "email_address")
 	private String email;
+	
 	@OneToOne
 	@JoinColumn(name = "user_name")
 	private UserNameVO userNameVO;

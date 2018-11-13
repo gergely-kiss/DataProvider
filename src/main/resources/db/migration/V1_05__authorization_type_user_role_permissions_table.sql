@@ -1,8 +1,10 @@
-CREATE TABLE `authorization_types_user_roles` (
+CREATE TABLE `authorization_type_user_role_permissions` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `authorization_type_id` INT NOT NULL,
-  `user_role_id` INT NULL,
-  PRIMARY KEY (`authorization_type_id`),
-  INDEX `id_idx` (`user_role_id` ASC) VISIBLE,
+  `user_role_id` INT NOT NULL,
+  `permission` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `user_role_id_idx` (`user_role_id` ASC) VISIBLE,
   CONSTRAINT `authorization_type_id`
     FOREIGN KEY (`authorization_type_id`)
     REFERENCES `authorization_types` (`id`)
