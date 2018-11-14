@@ -5,8 +5,10 @@ import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 /**
  * Value object to store authorization types
+ * 
  * @author kiss-
  *
  */
@@ -18,6 +20,23 @@ public class AuthorizationTypeVO {
 	private Integer id;
 	private String name;
 	private String description;
+
+	/**
+	 * 
+	 */
+	public AuthorizationTypeVO() {
+	}
+
+	/**
+	 * @param id
+	 * @param name
+	 * @param description
+	 */
+	public AuthorizationTypeVO(Integer id, String name, String description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
 
 	/*
 	 * (non-Javadoc)

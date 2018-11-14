@@ -8,8 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 /**
- * Value object to store authorization type roles and the corresponding permissions
+ * Value object to store authorization type roles and the corresponding
+ * permissions
+ * 
  * @author kiss-
  *
  */
@@ -32,8 +35,29 @@ public class AuthorizationTypeVOUserRoleVOPermissionVO implements Serializable {
 	private UserRoleVO userRoleVO;
 	private String permission;
 
-	
-	/* (non-Javadoc)
+	/**
+	 * 
+	 */
+	public AuthorizationTypeVOUserRoleVOPermissionVO() {
+	}
+
+	/**
+	 * @param id
+	 * @param authorizationTypeVO
+	 * @param userRoleVO
+	 * @param permission
+	 */
+	public AuthorizationTypeVOUserRoleVOPermissionVO(Integer id, AuthorizationTypeVO authorizationTypeVO,
+			UserRoleVO userRoleVO, String permission) {
+		this.id = id;
+		this.authorizationTypeVO = authorizationTypeVO;
+		this.userRoleVO = userRoleVO;
+		this.permission = permission;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -51,7 +75,9 @@ public class AuthorizationTypeVOUserRoleVOPermissionVO implements Serializable {
 		return builder.toString();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -59,7 +85,9 @@ public class AuthorizationTypeVOUserRoleVOPermissionVO implements Serializable {
 		return Objects.hash(authorizationTypeVO, id, permission, userRoleVO);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override

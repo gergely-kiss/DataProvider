@@ -5,8 +5,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,7 +18,7 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 @Transactional
 public class UserRoleVORepositoryTest {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserRoleVORepositoryTest.class);
+
 	@Autowired
 	UserRoleVORepository userRoleVORepository;
 
@@ -29,14 +27,13 @@ public class UserRoleVORepositoryTest {
 
 	@Before
 	public void prepareData() {
-		userRoleVO = AdministrationTestConstants.TEST_USER_ROLE;
-		defaultUserRoleVO = AdministrationTestConstants.DEFAULT_USER_ROLE;
+		userRoleVO = AdministrationTestConstants.TEST_USER_ROLE_VO;
+		defaultUserRoleVO = AdministrationTestConstants.DEFAULT_USER_ROLE_VO;
 	}
 
 	@Test
 	public void isDefaultUserExist() {
-		UserRoleVO UserRoleVO = userRoleVORepository.findById(AdministrationTestConstants.DEFAULT_USER_ROLE_ID).get();
-		Assert.assertTrue(UserRoleVO.equals(defaultUserRoleVO));
+		Assert.assertTrue(userRoleVORepository.findById(AdministrationTestConstants.DEFAULT_USER_ROLE_VO_ID).get().equals(defaultUserRoleVO));
 	}
 
 	@Test
