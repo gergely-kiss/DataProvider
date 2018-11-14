@@ -22,12 +22,12 @@ public class UserRoleVORepositoryTest {
 	@Autowired
 	UserRoleVORepository userRoleVORepository;
 
-	public UserRoleVO userRoleVO;
+	public UserRoleVO testUserRoleVO;
 	public UserRoleVO defaultUserRoleVO;
 
 	@Before
 	public void prepareData() {
-		userRoleVO = AdministrationTestConstants.TEST_USER_ROLE_VO;
+		testUserRoleVO = AdministrationTestConstants.TEST_USER_ROLE_VO;
 		defaultUserRoleVO = AdministrationTestConstants.DEFAULT_USER_ROLE_VO;
 	}
 
@@ -38,9 +38,9 @@ public class UserRoleVORepositoryTest {
 
 	@Test
 	public void isfPreparedDataIsSaved() {
-		userRoleVORepository.save(userRoleVO);
+		userRoleVORepository.save(testUserRoleVO);
 		Assert.assertTrue(
-				((List<UserRoleVO>) (userRoleVORepository.findAll())).stream().anyMatch(u -> u.equals(userRoleVO)));
+				((List<UserRoleVO>) (userRoleVORepository.findAll())).stream().anyMatch(u -> u.equals(testUserRoleVO)));
 	}
 
 }

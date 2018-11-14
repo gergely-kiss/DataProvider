@@ -7,8 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
 /**
  * Value object to store user names
+ * 
  * @author kiss-
  *
  */
@@ -21,6 +23,23 @@ public class UserNameVO {
 	private String hostReference;
 	@Column(name = "user_name")
 	private String userName;
+
+	/**
+	 * 
+	 */
+	public UserNameVO() {
+	}
+
+	/**
+	 * @param id
+	 * @param hostReference
+	 * @param userName
+	 */
+	public UserNameVO(Integer id, String hostReference, String userName) {
+		this.id = id;
+		this.hostReference = hostReference;
+		this.userName = userName;
+	}
 
 	/*
 	 * (non-Javadoc)

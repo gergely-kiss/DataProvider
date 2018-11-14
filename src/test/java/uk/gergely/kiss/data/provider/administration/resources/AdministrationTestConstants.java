@@ -2,6 +2,8 @@ package uk.gergely.kiss.data.provider.administration.resources;
 
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVOUserRoleVOPermissionVO;
+import uk.gergely.kiss.data.provider.administration.model.AuthorizedUserVO;
+import uk.gergely.kiss.data.provider.administration.model.UserNameVO;
 import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
 
 public class AdministrationTestConstants {
@@ -25,9 +27,25 @@ public class AdministrationTestConstants {
 	public static final AuthorizationTypeVO DEFAULT_AUTHORIZATION_TYPE_VO = new AuthorizationTypeVO(
 			DEFAULT_AUTHORIZATION_TYPE_VO_ID, DEFAULT_AUTHORIZATION_TYPE_VO_NAME,
 			DEFAULT_AUTHORIZATION_TYPE_VO_DESCRIPTION);
-	public static final AuthorizationTypeVOUserRoleVOPermissionVO DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO = new AuthorizationTypeVOUserRoleVOPermissionVO();
-	public static final AuthorizationTypeVOUserRoleVOPermissionVO TEST__AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO = new AuthorizationTypeVOUserRoleVOPermissionVO();
-
-	/* '1', '1', 'ANY' */
-
+	
+	public static final Integer TEST_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO_ID = 9;
+	public static final Integer DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO_ID = 1;
+	public static final String TEST_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO_NAME = "TEST_NAME";
+	public static final String DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO_NAME = "ANY";
+	public static final AuthorizationTypeVOUserRoleVOPermissionVO DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO = new AuthorizationTypeVOUserRoleVOPermissionVO(
+			DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO_ID, DEFAULT_AUTHORIZATION_TYPE_VO,
+			DEFAULT_USER_ROLE_VO, DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO_NAME);
+	public static final AuthorizationTypeVOUserRoleVOPermissionVO TEST_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO = new AuthorizationTypeVOUserRoleVOPermissionVO(
+			TEST_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO_ID, TEST_AUTHORIZATION_TYPE_VO, TEST_USER_ROLE_VO,
+			TEST_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO_NAME);
+	
+	public static final String TEST_AUTHORIZED_USER_VO_HOST_REFERENCE = "0987654321asdfghjkl";
+	public static final Integer TEST_AUTHORIZED_USER_VO_ID = 9;
+	public static final String TEST_AUTHORIZED_USER_VO_SALT = "9876asdf";
+	public static final String TEST_AUTHORIZED_USER_VO_PASSWORD = "9876asdf0987654321asdfghjkl";
+	public static final Integer TEST_USER_NAME_VO_ID = 9;
+	public static final String TEST_USER_NAME_VO_HOST_REFERENCE = "0987654321asdfghjkl";
+	public static final String TEST_USER_NAME_VO_NAME = "TEST_USER_NAME";
+	public static final UserNameVO TEST_USER_NAME_VO = new UserNameVO(TEST_USER_NAME_VO_ID, TEST_USER_NAME_VO_HOST_REFERENCE, TEST_USER_NAME_VO_NAME);
+	public static final AuthorizedUserVO TEST_AUTHORIZED_USER_VO = new AuthorizedUserVO(TEST_AUTHORIZED_USER_VO_ID, TEST_AUTHORIZED_USER_VO_HOST_REFERENCE, TEST_AUTHORIZED_USER_VO_SALT, TEST_AUTHORIZED_USER_VO_PASSWORD, TEST_USER_NAME_VO, TEST_AUTHORIZATION_TYPE_VO);
 }

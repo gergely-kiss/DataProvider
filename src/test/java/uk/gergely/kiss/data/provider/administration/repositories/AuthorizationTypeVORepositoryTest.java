@@ -20,26 +20,26 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 public class AuthorizationTypeVORepositoryTest {
 
 	@Autowired
-	AuthorizationTypeVORepository authorizationTypeVORepositoryTest;
+	AuthorizationTypeVORepository authorizationTypeVORepository;
 
-	public AuthorizationTypeVO authorizationTypeVO;
+	public AuthorizationTypeVO testAuthorizationTypeVO;
 	public AuthorizationTypeVO defaultAuthorizationTypeVO;
 
 	@Before
 	public void prepareDate() {
-		authorizationTypeVO = AdministrationTestConstants.TEST_AUTHORIZATION_TYPE_VO;
+		testAuthorizationTypeVO = AdministrationTestConstants.TEST_AUTHORIZATION_TYPE_VO;
 		defaultAuthorizationTypeVO = AdministrationTestConstants.DEFAULT_AUTHORIZATION_TYPE_VO;
 	}
 
 	@Test
 	public void isDefaultUserExist() {
-		Assert.assertTrue(authorizationTypeVORepositoryTest.findById(AdministrationTestConstants.DEFAULT_USER_ROLE_VO_ID).get().equals(defaultAuthorizationTypeVO));
+		Assert.assertTrue(authorizationTypeVORepository.findById(AdministrationTestConstants.DEFAULT_USER_ROLE_VO_ID).get().equals(defaultAuthorizationTypeVO));
 	}
 
 	@Test
 	public void isfPreparedDataIsSaved() {
-		authorizationTypeVORepositoryTest.save(authorizationTypeVO);
+		authorizationTypeVORepository.save(testAuthorizationTypeVO);
 		Assert.assertTrue(
-				((List<AuthorizationTypeVO>) (authorizationTypeVORepositoryTest.findAll())).stream().anyMatch(u -> u.equals(authorizationTypeVO)));
+				((List<AuthorizationTypeVO>) (authorizationTypeVORepository.findAll())).stream().anyMatch(u -> u.equals(testAuthorizationTypeVO)));
 	}
 }

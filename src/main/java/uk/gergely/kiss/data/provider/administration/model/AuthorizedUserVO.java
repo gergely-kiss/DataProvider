@@ -31,6 +31,50 @@ public class AuthorizedUserVO {
 	@OneToOne
 	@JoinColumn(name = "id")
 	private AuthorizationTypeVO authorizationTypeVO;
+	
+	
+
+	/**
+	 * 
+	 */
+	public AuthorizedUserVO() {
+	}
+
+	/**
+	 * @param id
+	 * @param hostReference
+	 * @param salt
+	 * @param password
+	 * @param userNameVO
+	 * @param authorizationTypeVO
+	 */
+	
+	
+	public AuthorizedUserVO(Integer id, String hostReference, String salt, String password, UserNameVO userNameVO,
+			AuthorizationTypeVO authorizationTypeVO) {
+		this.id = id;
+		this.hostReference = hostReference;
+		this.salt = salt;
+		this.password = password;
+		this.userNameVO = userNameVO;
+		this.authorizationTypeVO = authorizationTypeVO;
+	}
+
+	/**
+	 * @param id
+	 * @param salt
+	 * @param password
+	 * @param userNameVO
+	 * @param authorizationTypeVO
+	 */
+	public AuthorizedUserVO(Integer id, String salt, String password, UserNameVO userNameVO,
+			AuthorizationTypeVO authorizationTypeVO) {
+		this.id = id;
+		this.salt = salt;
+		this.password = password;
+		this.userNameVO = userNameVO;
+		this.authorizationTypeVO = authorizationTypeVO;
+	}
 
 	/*
 	 * (non-Javadoc)
