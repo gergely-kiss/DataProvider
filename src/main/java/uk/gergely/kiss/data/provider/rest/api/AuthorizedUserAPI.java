@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import uk.gergely.kiss.data.provider.model.administration.util.model.AuthorizedUser;
+import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizedUser;
 import uk.gergely.kiss.data.provider.rest.api.resources.APIConstants;
 import uk.gergely.kiss.data.provider.rest.api.service.AuthorizedUserAPIService;
 

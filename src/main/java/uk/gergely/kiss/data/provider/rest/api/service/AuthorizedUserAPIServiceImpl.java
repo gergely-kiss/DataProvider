@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uk.gergely.kiss.data.provider.model.administration.util.model.AuthorizedUser;
-import uk.gergely.kiss.data.provider.service.administration.AuthorizedUserService;
+import uk.gergely.kiss.data.provider.administration.service.AuthorizedUserService;
+import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizedUser;
 
 @Service
 public class AuthorizedUserAPIServiceImpl implements AuthorizedUserAPIService {
