@@ -1,7 +1,8 @@
 package uk.gergely.kiss.data.provider.rest.api;
 
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ import uk.gergely.kiss.data.provider.rest.api.service.AuthorizedUserAPIService;
 @Controller
 @RequestMapping(path = APIConstants.AUTHORIZED_USER_PATH)
 public class AuthorizedUserAPI {
-	Logger LOGGER = Logger.getLogger(String.valueOf(AuthorizedUserAPI.class));
+	Logger LOGGER = LoggerFactory.getLogger(AuthorizedUserAPI.class);
 	@Autowired
 	AuthorizedUserAPIService authorizedUserAPIService;
 
@@ -24,7 +25,7 @@ public class AuthorizedUserAPI {
 	public @ResponseBody List<AuthorizedUser> getAllAuthorizedUsers() {
 		LOGGER.info("getAllAuthorizedUsers called");
 		List<AuthorizedUser> authorizedUserList = authorizedUserAPIService.getAllAuthorizedUser();
-		LOGGER.info("getAllAuthorizedUsers authorizedUserList :" + authorizedUserList);
+		LOGGER.info("getAllAuthorizedUsers authorizedUserList : {}", authorizedUserList);
 		return authorizedUserList;
 	}
 }

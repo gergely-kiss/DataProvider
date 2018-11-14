@@ -2,7 +2,8 @@ package uk.gergely.kiss.data.provider.administration.util;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,8 +18,8 @@ import uk.gergely.kiss.data.provider.administration.util.domain.RolePermission;
 
 @Component
 public class AuthorizationTypeVOToAuthorizationTypeConverterUtil {
-	private final static Logger LOGGER = Logger
-			.getLogger(String.valueOf(AuthorizationTypeVOToAuthorizationTypeConverterUtil.class));
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(AuthorizationTypeVOToAuthorizationTypeConverterUtil.class);
 	@Autowired
 	AuthorizationTypeVOUserRoleVOPermissionVOService authorizationTypeVOUserRoleVOPermissionVOService;
 
@@ -42,8 +43,8 @@ public class AuthorizationTypeVOToAuthorizationTypeConverterUtil {
 		}
 
 		authorizationType.setRolePermissionList(userRolePermission);
-		LOGGER.info("authorizationTypeVO: " + authorizationTypeVO
-				+ " was converted to authorizationType: " + authorizationType);
+		LOGGER.info("convert: authorizationTypeVO: {}, was converted to authorizationType: {}", authorizationTypeVO,
+				authorizationType);
 		return authorizationType;
 	}
 }

@@ -21,6 +21,23 @@ public class UserRoleVO {
 	@Column
 	private String name;
 
+	
+	
+	/**
+	 * 
+	 */
+	public UserRoleVO() {
+	}
+
+	/**
+	 * @param id
+	 * @param name
+	 */
+	public UserRoleVO(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 

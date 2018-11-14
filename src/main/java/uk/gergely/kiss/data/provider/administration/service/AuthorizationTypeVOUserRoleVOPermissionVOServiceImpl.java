@@ -1,7 +1,8 @@
 package uk.gergely.kiss.data.provider.administration.service;
 
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,13 +15,13 @@ public class AuthorizationTypeVOUserRoleVOPermissionVOServiceImpl implements Aut
 	@Autowired
 	AuthorizationTypeVOUserRoleVOPermissionVORepository repo;
 	
-	private final static Logger LOGGER = Logger.getLogger(String.valueOf(AuthorizationTypeVOUserRoleVOPermissionVOService.class));
+	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizationTypeVOUserRoleVOPermissionVOService.class);
 
 	@Override
 	public List<AuthorizationTypeVOUserRoleVOPermissionVO> getAllAuthorizationTypeVOUserRoleVOPermissionVO() {
 		LOGGER.info("getAllAuthorizationTypeVOUserRoleVO called");
 		List<AuthorizationTypeVOUserRoleVOPermissionVO> authorizationTypeVOUserRoleVOList = (List<AuthorizationTypeVOUserRoleVOPermissionVO>) repo.findAll();
-		LOGGER.info("getAllAuthorizationTypeVOUserRoleVO: authorizationTypeVOUserRoleVOList: " + authorizationTypeVOUserRoleVOList);
+		LOGGER.info("getAllAuthorizationTypeVOUserRoleVO: authorizationTypeVOUserRoleVOList: {} ", authorizationTypeVOUserRoleVOList);
 		return authorizationTypeVOUserRoleVOList;
 	}
 

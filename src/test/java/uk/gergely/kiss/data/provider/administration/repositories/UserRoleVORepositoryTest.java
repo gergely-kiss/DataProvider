@@ -1,40 +1,49 @@
 package uk.gergely.kiss.data.provider.administration.repositories;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.junit.Assert;
 import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
+import uk.gergely.kiss.data.provider.administration.resources.AdministrationTestConstants;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
 public class UserRoleVORepositoryTest {
 
-	private static final Logger LOGGER = Logger.getLogger(String.valueOf(UserRoleVORepositoryTest.class));
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserRoleVORepositoryTest.class);
 	@Autowired
 	UserRoleVORepository userRoleVORepository;
 
 	public UserRoleVO userRoleVO;
+	public UserRoleVO defaultUserRoleVO;
 
 	@Before
-	public void prepareDate() {
-		userRoleVO = new UserRoleVO();
-		userRoleVO.setId(9);
-		userRoleVO.setName("TEST_ROLE");
-		userRoleVORepository.save(userRoleVO);
+	public void prepareData() {
+		userRoleVO = AdministrationTestConstants.TEST_USER_ROLE;
+		defaultUserRoleVO = AdministrationTestConstants.DEFAULT_USER_ROLE;
 	}
 
 	@Test
-	public void testIfRoleExist() {
-		LOGGER.info((List<UserRoleVO>) (userRoleVORepository.findAll()) + "");
+	public void isDefaultUserExist() {
+		UserRoleVO UserRoleVO = userRoleVORepository.findById(AdministrationTestConstants.DEFAULT_USER_ROLE_ID).get();
+		Assert.assertTrue(UserRoleVO.equals(defaultUserRoleVO));
+	}
+
+	@Test
+	public void isfPreparedDataIsSaved() {
+		userRoleVORepository.save(userRoleVO);
+		Assert.assertTrue(
+				((List<UserRoleVO>) (userRoleVORepository.findAll())).stream().anyMatch(u -> u.equals(userRoleVO)));
 	}
 
 }

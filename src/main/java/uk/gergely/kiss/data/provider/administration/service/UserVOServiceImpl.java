@@ -1,6 +1,7 @@
 package uk.gergely.kiss.data.provider.administration.service;
 
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import uk.gergely.kiss.data.provider.administration.repositories.UserVORepositor
 
 @Service
 public class UserVOServiceImpl implements UserVOService {
-	Logger LOGGER = Logger.getLogger(String.valueOf(UserVOService.class));
+	Logger LOGGER = LoggerFactory.getLogger(UserVOService.class);
 
 	@Autowired
 	UserVORepository userVORepository;
