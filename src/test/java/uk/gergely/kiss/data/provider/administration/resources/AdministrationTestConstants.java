@@ -61,9 +61,8 @@ public class AdministrationTestConstants {
 	public static final Integer DEFAULT_USER_NAME_VO_ID = FIRST_ID;
 	public static final String DEFAULT_USER_NAME_VO_HOST_REFERENCE = "1234567890_Superuser";
 	public static final String DEFAULT_USER_NAME_VO_NAME = "Superuser";
-	public static final UserNameVO TEST_USER_NAME_VO = new UserNameVO(TEST_USER_NAME_VO_ID, TEST_USER_NAME_VO_NAME);
-	public static final UserNameVO DEFAULT_USER_NAME_VO = new UserNameVO(DEFAULT_USER_NAME_VO_ID,
-			DEFAULT_USER_NAME_VO_NAME);
+	public static final UserNameVO TEST_USER_NAME_VO = new UserNameVO(TEST_USER_NAME_VO_NAME);
+	public static final UserNameVO DEFAULT_USER_NAME_VO = new UserNameVO(DEFAULT_USER_NAME_VO_NAME);
 
 	public static final String TEST_AUTHORIZED_USER_VO_HOST_REFERENCE = "0987654321asdfghjkl";
 	public static final Integer TEST_AUTHORIZED_USER_VO_ID = TEST_ID;

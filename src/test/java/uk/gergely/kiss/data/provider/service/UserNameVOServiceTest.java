@@ -6,13 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-
 import org.junit.Assert;
 import org.junit.Before;
-
-import uk.gergely.kiss.data.provider.administration.model.UserNameVO;
 import uk.gergely.kiss.data.provider.administration.resources.AdministrationTestConstants;
-import uk.gergely.kiss.data.provider.administration.service.UserNameVOService;
+import uk.gergely.kiss.data.provider.administration.service.UserNameService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,26 +17,25 @@ import uk.gergely.kiss.data.provider.administration.service.UserNameVOService;
 public class UserNameVOServiceTest {
 
 	@Autowired
-	private UserNameVOService userNameVOService;
+	private UserNameService userNameVOService;
 
-	public UserNameVO savedUserNameVO;
+	public String savedUserName;
 	
 	@Before
 	public void prepareData() {
-		savedUserNameVO = userNameVOService.saveUserNameVO(AdministrationTestConstants.TEST_USER_NAME_VO);
-		Assert.assertEquals(savedUserNameVO, AdministrationTestConstants.TEST_USER_NAME_VO);
+		savedUserName = userNameVOService.saveUserName(AdministrationTestConstants.TEST_USER_NAME_VO_NAME);
 	}
 
 	@Test
 	public void saveUserNameVO() {;
-		Assert.assertEquals(savedUserNameVO, AdministrationTestConstants.TEST_USER_NAME_VO);
+		Assert.assertEquals(savedUserName, AdministrationTestConstants.TEST_USER_NAME_VO_NAME);
 	}
 
 	@Test
 	public void getAllUserNameVO() {
-		int defultNumberOfUserNameVO = userNameVOService.getAllUserNameVO().size();
+		int defultNumberOfUserNameVO = userNameVOService.getAllUserName().size();
 		Assert.assertTrue(defultNumberOfUserNameVO > 0);
-		Assert.assertNotNull(userNameVOService.getAllUserNameVO());
+		Assert.assertNotNull(userNameVOService.getAllUserName());
 	}
 
 }

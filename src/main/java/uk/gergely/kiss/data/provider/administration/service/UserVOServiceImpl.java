@@ -21,7 +21,7 @@ public class UserVOServiceImpl implements UserVOService {
 	@Autowired
 	UserVORepository userVORepository;
 	@Autowired
-	UserNameVOService userNameVOService;
+	UserNameService userNameVOService;
 	@Autowired
 	UserConverter userVOToUserConverterUtil;
 

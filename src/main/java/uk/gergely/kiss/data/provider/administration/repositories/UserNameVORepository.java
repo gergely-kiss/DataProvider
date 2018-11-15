@@ -5,4 +5,7 @@ import uk.gergely.kiss.data.provider.administration.model.UserNameVO;
 
 public interface UserNameVORepository extends CrudRepository<UserNameVO, Integer>{
 
+	void deleteByUserName(String userName);
+	UserNameVO findByUserName(String userName);
+
 }

@@ -36,8 +36,7 @@ public class UserNameVO {
 	 * @param hostReference
 	 * @param userName
 	 */
-	public UserNameVO(Integer id, String userName) {
-		this.id = id;
+	public UserNameVO(String userName) {
 		this.userName = userName;
 	}
 
