@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import uk.gergely.kiss.data.provider.administration.resources.AdministrationTestConstants;
-import uk.gergely.kiss.data.provider.administration.service.AuthorizedUserVOService;
+import uk.gergely.kiss.data.provider.administration.service.AuthorizedUserService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -17,7 +17,7 @@ import uk.gergely.kiss.data.provider.administration.service.AuthorizedUserVOServ
 public class AuthorizedUserVOServiceTest {
 
 	@Autowired
-	AuthorizedUserVOService authorizedUserVOService;
+	AuthorizedUserService authorizedUserVOService;
 
 	@Test
 	public void getAuthorizedUserList() {

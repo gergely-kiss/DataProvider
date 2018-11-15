@@ -1,4 +1,4 @@
-package uk.gergely.kiss.data.provider.service;
+/*package uk.gergely.kiss.data.provider.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -59,3 +59,4 @@ public class UserVOServiceTest {
 		Assert.assertNull(userNameVOService.getUserNameVOByHostReference(savedUserVO.getUserNameVO().getHostReference()));
 	}
 }
+*/

@@ -41,16 +41,5 @@ public class UserNameVOServiceTest {
 		Assert.assertTrue(defultNumberOfUserNameVO > 0);
 		Assert.assertNotNull(userNameVOService.getAllUserNameVO());
 	}
-	@Test
-	public void getUserByHostReference() {
-		UserNameVO userNameVO = userNameVOService.getUserNameVOByHostReference(savedUserNameVO.getHostReference());
-		Assert.assertNotNull(userNameVO);		
-		Assert.assertEquals(savedUserNameVO, userNameVO);
-		
-	}
-	@Test
-	public void deleteUserNameVO() {
-		userNameVOService.deleteUserNameVO(savedUserNameVO);
-		Assert.assertNull(userNameVOService.getUserNameVOByHostReference(savedUserNameVO.getHostReference()));
-	}
+
 }

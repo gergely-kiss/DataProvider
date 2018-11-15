@@ -1,5 +1,8 @@
 package uk.gergely.kiss.data.provider.administration.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import uk.gergely.kiss.data.provider.administration.model.UserVO;
 import uk.gergely.kiss.data.provider.administration.repositories.UserVORepository;
+import uk.gergely.kiss.data.provider.administration.util.UserConverter;
+import uk.gergely.kiss.data.provider.administration.util.domain.User;
 
 @Service
 public class UserVOServiceImpl implements UserVOService {
@@ -17,42 +22,53 @@ public class UserVOServiceImpl implements UserVOService {
 	UserVORepository userVORepository;
 	@Autowired
 	UserNameVOService userNameVOService;
+	@Autowired
+	UserConverter userVOToUserConverterUtil;
 
 	@Override
-	public UserVO getUserVOByHostReference(String hostReference) {
+	public User getUserByHostReference(String hostReference) {
 		LOGGER.info("getUserVOByHostReference was called with the hostReference: {}", hostReference);
 		UserVO savedUserVO = userVORepository.findUserVOByHostReference(hostReference);
 		LOGGER.info("getUserVOByHostReference: found the following user savedUserVO: {}", savedUserVO);
-		return savedUserVO;
+		User user = userVOToUserConverterUtil.convert(savedUserVO);
+		return user;
 	}
 
 	@Override
-	public UserVO saveUserVO(UserVO userVO) {
-		LOGGER.info("saveUserVO was called with the UserVO: {}", userVO);
-		userNameVOService.saveUserNameVO(userVO.getUserNameVO());
-		UserVO savedUserVO = userVORepository.save(userVO);
-		LOGGER.info("saveUserVO: savedUserVO: {}", savedUserVO);
-		return savedUserVO;
+	public User saveUser(User user) {
+		// LOGGER.info("saveUserVO was called with the UserVO: {}", userVO);
+
+		// LOGGER.info("saveUserVO: savedUserVO: {}", savedUserVO);
+		return new User();
 	}
 
 	@Override
-	public UserVO updateUserVO(UserVO userVO) {
+	public User updateUser(User userVO) {
 		LOGGER.info("updateUserVO was called with the UserVO: {}", userVO);
-		UserVO updatedUserVO = userVORepository.save(userVO);
-		LOGGER.info("updateUserVO: updatedUserVO: {}", updatedUserVO);
-		return updatedUserVO;
+
+		// LOGGER.info("updateUserVO: updatedUserVO: {}", updatedUserVO);
+		return new User();
 	}
 
 	@Override
-	public void deleteUserVO(UserVO userVO) {
+	public void deleteUser(User userVO) {
 		LOGGER.info("deleteUserVO was called with the UserVO: {}", userVO);
-		userVORepository.delete(userVO);
-		userNameVOService.deleteUserNameVO(userVO.getUserNameVO());
-		if (userVORepository.existsById(userVO.getId())) {
-			LOGGER.info("deleteUserVO: error occurred the userVO still exist {}", userVO);
-		} else {
-			LOGGER.info("deleteUserVO: deleted userVO( {} ) deleted", userVO);
-		}
+		/*
+		 * userVORepository.delete(userVO);
+		 * userNameVOService.deleteUserNameVO(userVO.getUserNameVO()); if
+		 * (userVORepository.existsById(userVO.getId())) {
+		 * LOGGER.info("deleteUserVO: error occurred the userVO still exist {}",
+		 * userVO); } else { LOGGER.info("deleteUserVO: deleted userVO( {} ) deleted",
+		 * userVO);}
+		 */
+	}
 
+	@Override
+	public List<User> getAllUser() {
+		LOGGER.info("getAllUserVO was called");
+		List<UserVO> userVOList = (List<UserVO>) userVORepository.findAll();
+		LOGGER.info("getAllUserVO: userVOList: {}", userVOList);
+		List<User> userList = new ArrayList<>();
+		return userList;
 	}
 }

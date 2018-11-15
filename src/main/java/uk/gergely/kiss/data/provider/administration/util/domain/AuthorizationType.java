@@ -10,6 +10,12 @@ public class AuthorizationType {
 	private List<RolePermissionPair> rolePermissionList;
 
 	
+	
+	/**
+	 * 
+	 */
+	public AuthorizationType() {
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -24,6 +30,16 @@ public class AuthorizationType {
 		builder.append(rolePermissionList);
 		builder.append("]");
 		return builder.toString();
+	}
+	/**
+	 * @param name
+	 * @param description
+	 * @param rolePermissionList
+	 */
+	public AuthorizationType(String name, String description, List<RolePermissionPair> rolePermissionList) {
+		this.name = name;
+		this.description = description;
+		this.rolePermissionList = rolePermissionList;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()

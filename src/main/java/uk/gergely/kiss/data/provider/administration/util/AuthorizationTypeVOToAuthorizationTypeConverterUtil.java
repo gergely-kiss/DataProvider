@@ -12,7 +12,7 @@ import uk.gergely.kiss.data.provider.administration.PermissionEnum;
 import uk.gergely.kiss.data.provider.administration.RoleEnum;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVOUserRoleVOPermissionVO;
-import uk.gergely.kiss.data.provider.administration.service.AuthorizationTypeVOUserRoleVOPermissionVOService;
+import uk.gergely.kiss.data.provider.administration.service.RolePermissionPairService;
 import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizationType;
 import uk.gergely.kiss.data.provider.administration.util.domain.RolePermissionPair;
 
@@ -21,7 +21,7 @@ public class AuthorizationTypeVOToAuthorizationTypeConverterUtil {
 	private final static Logger LOGGER = LoggerFactory
 			.getLogger(AuthorizationTypeVOToAuthorizationTypeConverterUtil.class);
 	@Autowired
-	AuthorizationTypeVOUserRoleVOPermissionVOService authorizationTypeVOUserRoleVOPermissionVOService;
+	RolePermissionPairService authorizationTypeVOUserRoleVOPermissionVOService;
 
 	public AuthorizationType convert(AuthorizationTypeVO authorizationTypeVO) {
 		LOGGER.info("convert was called with authorizationTypeVO: " + authorizationTypeVO);

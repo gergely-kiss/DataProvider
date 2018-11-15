@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import uk.gergely.kiss.data.provider.administration.resources.AdministrationTestConstants;
-import uk.gergely.kiss.data.provider.administration.service.AuthorizationTypeVOUserRoleVOPermissionVOService;
+import uk.gergely.kiss.data.provider.administration.service.RolePermissionPairService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -17,7 +17,7 @@ import uk.gergely.kiss.data.provider.administration.service.AuthorizationTypeVOU
 public class AuthorizationTypeVOUserRoleVOPermissionVOServiceTest {
 
 	@Autowired
-	AuthorizationTypeVOUserRoleVOPermissionVOService authorizationTypeVOUserRoleVOPermissionVOService;
+	RolePermissionPairService authorizationTypeVOUserRoleVOPermissionVOService;
 
 	@Test
 	public void getAllAuthorizationTypeVOUserRoleVOPermissionVOTest() {

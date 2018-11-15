@@ -1,12 +1,15 @@
 package uk.gergely.kiss.data.provider.administration.service;
 
-import uk.gergely.kiss.data.provider.administration.model.UserVO;
+import java.util.List;
+
+import uk.gergely.kiss.data.provider.administration.util.domain.User;
 
 public interface UserVOService {
 	
-	public UserVO getUserVOByHostReference(String hostReference);
-	public UserVO saveUserVO(UserVO userVO);
-	public UserVO updateUserVO(UserVO userVO);
-	public void deleteUserVO(UserVO userVO);
+	public User getUserByHostReference(String hostReference);
+	public User saveUser(User user);
+	public User updateUser(User user);
+	public void deleteUser(User user);
+	public List<User> getAllUser();
 	
 }

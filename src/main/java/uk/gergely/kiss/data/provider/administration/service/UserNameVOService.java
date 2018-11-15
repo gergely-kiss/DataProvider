@@ -12,5 +12,5 @@ public interface UserNameVOService {
 
 	public void deleteUserNameVO(UserNameVO userNameVO);
 
-	public UserNameVO getUserNameVOByHostReference(String hostReference);
+	public UserNameVO getUserNameVOById(Integer id);
 }

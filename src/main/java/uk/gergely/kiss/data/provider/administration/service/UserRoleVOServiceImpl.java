@@ -15,7 +15,7 @@ public class UserRoleVOServiceImpl implements UserRoleVOService {
 	@Autowired
 	UserRoleVORepository repo;
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizationTypeVOUserRoleVOPermissionVOService.class);
+	private final static Logger LOGGER = LoggerFactory.getLogger(RolePermissionPairService.class);
 
 	@Override
 	public List<UserRoleVO> getAllUserRoles() {

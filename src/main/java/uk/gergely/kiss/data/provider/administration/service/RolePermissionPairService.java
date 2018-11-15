@@ -4,7 +4,7 @@ import java.util.List;
 
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVOUserRoleVOPermissionVO;
 
-public interface AuthorizationTypeVOUserRoleVOPermissionVOService {
+public interface RolePermissionPairService {
 
 	public List<AuthorizationTypeVOUserRoleVOPermissionVO> getAllAuthorizationTypeVOUserRoleVOPermissionVO();
 }

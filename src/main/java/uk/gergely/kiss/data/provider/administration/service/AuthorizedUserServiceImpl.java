@@ -13,14 +13,14 @@ import uk.gergely.kiss.data.provider.administration.util.AuthorizedUserVOToAutho
 import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizedUser;
 
 @Service
-public class AuthorizedUserVOServiceImpl implements AuthorizedUserVOService {
+public class AuthorizedUserServiceImpl implements AuthorizedUserService {
 	@Autowired
 	AuthorizedUserVORepository repo;
 
 	@Autowired
 	AuthorizedUserVOToAuthorizedUserConvertUtil converter;
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizedUserVOService.class);
+	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizedUserService.class);
 
 	@Override
 	public List<AuthorizedUser> getAuthorizedUserList() {

@@ -46,9 +46,9 @@ public class UserNameVOServiceImpl implements UserNameVOService {
 	}
 
 	@Override
-	public UserNameVO getUserNameVOByHostReference(String hostReference) {
-		LOGGER.info("getUserNameVOByHostReference was called with hostReference: {} was called", hostReference);
-		UserNameVO userNameVO = userNameVORepository.findUserNameVOByHostReference(hostReference);
+	public UserNameVO getUserNameVOById(Integer id) {
+		LOGGER.info("getUserNameVOByHostReference was called with hostReference: {} was called", id);
+		UserNameVO userNameVO = userNameVORepository.findById(id).get();
 		LOGGER.info("getUserNameVOByHostReference: found {}", userNameVO);
 		return userNameVO;
 	}

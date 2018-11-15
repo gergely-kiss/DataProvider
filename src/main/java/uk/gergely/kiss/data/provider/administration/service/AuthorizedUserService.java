@@ -4,7 +4,7 @@ import java.util.List;
 
 import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizedUser;
 
-public interface AuthorizedUserVOService {
+public interface AuthorizedUserService {
 
 	public List<AuthorizedUser> getAuthorizedUserList();
 }

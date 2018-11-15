@@ -11,11 +11,11 @@ import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVOUse
 import uk.gergely.kiss.data.provider.administration.repositories.AuthorizationTypeVOUserRoleVOPermissionVORepository;
 
 @Service
-public class AuthorizationTypeVOUserRoleVOPermissionVOServiceImpl implements AuthorizationTypeVOUserRoleVOPermissionVOService {
+public class RolePermissionPairServiceImpl implements RolePermissionPairService {
 	@Autowired
 	AuthorizationTypeVOUserRoleVOPermissionVORepository repo;
 	
-	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizationTypeVOUserRoleVOPermissionVOService.class);
+	private final static Logger LOGGER = LoggerFactory.getLogger(RolePermissionPairService.class);
 
 	@Override
 	public List<AuthorizationTypeVOUserRoleVOPermissionVO> getAllAuthorizationTypeVOUserRoleVOPermissionVO() {
