@@ -14,7 +14,7 @@ import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVOUserRoleVOPermissionVO;
 import uk.gergely.kiss.data.provider.administration.service.AuthorizationTypeVOUserRoleVOPermissionVOService;
 import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizationType;
-import uk.gergely.kiss.data.provider.administration.util.domain.RolePermission;
+import uk.gergely.kiss.data.provider.administration.util.domain.RolePermissionPair;
 
 @Component
 public class AuthorizationTypeVOToAuthorizationTypeConverterUtil {
@@ -29,13 +29,13 @@ public class AuthorizationTypeVOToAuthorizationTypeConverterUtil {
 		authorizationType.setName(authorizationTypeVO.getName());
 		authorizationType.setDescription(authorizationTypeVO.getDescription());
 
-		List<RolePermission> userRolePermission = new ArrayList<>();
+		List<RolePermissionPair> userRolePermission = new ArrayList<>();
 
 		List<AuthorizationTypeVOUserRoleVOPermissionVO> authorizationTypeVOUserRoleVOPermissionVO = authorizationTypeVOUserRoleVOPermissionVOService
 				.getAllAuthorizationTypeVOUserRoleVOPermissionVO();
 		for (AuthorizationTypeVOUserRoleVOPermissionVO aTVOUURVOPVO : authorizationTypeVOUserRoleVOPermissionVO) {
 			if (aTVOUURVOPVO.getAuthorizationTypeVO().getId() == authorizationTypeVO.getId()) {
-				RolePermission rolePermission = new RolePermission();
+				RolePermissionPair rolePermission = new RolePermissionPair();
 				rolePermission.setRole(RoleEnum.valueOf(aTVOUURVOPVO.getUserRoleVO().getName()));
 				rolePermission.setPermission(PermissionEnum.valueOf(aTVOUURVOPVO.getPermission()));
 				userRolePermission.add(rolePermission);

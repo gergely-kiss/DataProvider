@@ -17,7 +17,7 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 public class UserNameVORepositoryTest {
 
 	@Autowired
-	UserNameVORepository userNameVORepository;
+	private UserNameVORepository userNameVORepository;
 
 	@Before
 	public void prepareData() {

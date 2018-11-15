@@ -5,10 +5,26 @@ import java.util.Objects;
 import uk.gergely.kiss.data.provider.administration.PermissionEnum;
 import uk.gergely.kiss.data.provider.administration.RoleEnum;
 
-public class RolePermission {
+public class RolePermissionPair {
 
 	private RoleEnum role;
 	private PermissionEnum permission;
+
+	
+	/**
+	 * 
+	 */
+	public RolePermissionPair() {
+	}
+
+	/**
+	 * @param role
+	 * @param permission
+	 */
+	public RolePermissionPair(RoleEnum role, PermissionEnum permission) {
+		this.role = role;
+		this.permission = permission;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -18,7 +34,7 @@ public class RolePermission {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("RolePermission [role=");
+		builder.append("RolePermissionPair [role=");
 		builder.append(role);
 		builder.append(", permission=");
 		builder.append(permission);
@@ -49,10 +65,10 @@ public class RolePermission {
 		if (obj == null) {
 			return false;
 		}
-		if (!(obj instanceof RolePermission)) {
+		if (!(obj instanceof RolePermissionPair)) {
 			return false;
 		}
-		RolePermission other = (RolePermission) obj;
+		RolePermissionPair other = (RolePermissionPair) obj;
 		return Objects.equals(permission, other.permission) && Objects.equals(role, other.role);
 	}
 

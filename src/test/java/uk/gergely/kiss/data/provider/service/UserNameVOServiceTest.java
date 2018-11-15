@@ -20,7 +20,7 @@ import uk.gergely.kiss.data.provider.administration.service.UserNameVOService;
 public class UserNameVOServiceTest {
 
 	@Autowired
-	UserNameVOService userNameVOService;
+	private UserNameVOService userNameVOService;
 
 	public UserNameVO savedUserNameVO;
 	

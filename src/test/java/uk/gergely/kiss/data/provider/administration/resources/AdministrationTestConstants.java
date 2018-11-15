@@ -1,11 +1,14 @@
 package uk.gergely.kiss.data.provider.administration.resources;
 
+import uk.gergely.kiss.data.provider.administration.PermissionEnum;
+import uk.gergely.kiss.data.provider.administration.RoleEnum;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVOUserRoleVOPermissionVO;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizedUserVO;
 import uk.gergely.kiss.data.provider.administration.model.UserNameVO;
 import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
 import uk.gergely.kiss.data.provider.administration.model.UserVO;
+import uk.gergely.kiss.data.provider.administration.util.domain.RolePermissionPair;
 
 public class AdministrationTestConstants {
 	public static final Integer FIRST_ID = 1;
@@ -79,5 +82,11 @@ public class AdministrationTestConstants {
 	public static final String UPDATE_USER_VO_EMAIL = "update_email@test.ts";
 	public static final UserVO TEST_USER_VO = new UserVO(TEST_USER_VO_ID, TEST_USER_VO_HOST_REFERENCE,
 			TEST_USER_VO_FIRST_NAME, TEST_USER_VO_LAST_NAME, TEST_USER_VO_EMAIL, TEST_USER_NAME_VO);
+	
+	public static final PermissionEnum TEST_PERMISSION = PermissionEnum.READ;
+	public static final RoleEnum TEST_ROLE = RoleEnum.USER;
+	public static final RolePermissionPair TEST_ROLE_PERMISSION_PAIR = new RolePermissionPair(TEST_ROLE , TEST_PERMISSION);
+	
+	
 	
 }

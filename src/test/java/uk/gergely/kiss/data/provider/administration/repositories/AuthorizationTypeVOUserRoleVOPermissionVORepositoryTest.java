@@ -16,11 +16,11 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 @Transactional
 public class AuthorizationTypeVOUserRoleVOPermissionVORepositoryTest {
 	@Autowired
-	UserRoleVORepository userRoleVORepository;
+	private UserRoleVORepository userRoleVORepository;
 	@Autowired
-	AuthorizationTypeVORepository authorizationTypeVORepository;
+	private AuthorizationTypeVORepository authorizationTypeVORepository;
 	@Autowired
-	AuthorizationTypeVOUserRoleVOPermissionVORepository authorizationTypeVOUserRoleVOPermissionVORepository;
+	private AuthorizationTypeVOUserRoleVOPermissionVORepository authorizationTypeVOUserRoleVOPermissionVORepository;
 
 	@Before
 	public void prepareData() {

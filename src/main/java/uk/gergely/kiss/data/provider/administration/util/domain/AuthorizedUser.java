@@ -9,8 +9,26 @@ public class AuthorizedUser {
 	private String password;
 	private String userName;
 	private AuthorizationType type;
-
 	
+	/**
+	 * 
+	 */
+	public AuthorizedUser() {
+	}
+	/**
+	 * @param id
+	 * @param salt
+	 * @param password
+	 * @param userName
+	 * @param type
+	 */
+	public AuthorizedUser(String id, String salt, String password, String userName, AuthorizationType type) {
+		this.id = id;
+		this.salt = salt;
+		this.password = password;
+		this.userName = userName;
+		this.type = type;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

@@ -17,7 +17,7 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 public class UserRoleVORepositoryTest {
 
 	@Autowired
-	UserRoleVORepository userRoleVORepository;
+	private UserRoleVORepository userRoleVORepository;
 
 	@Before
 	public void prepareData() {

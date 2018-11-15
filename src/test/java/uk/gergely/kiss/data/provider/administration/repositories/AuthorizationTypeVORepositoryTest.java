@@ -17,7 +17,7 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 public class AuthorizationTypeVORepositoryTest {
 
 	@Autowired
-	AuthorizationTypeVORepository authorizationTypeVORepository;
+	private AuthorizationTypeVORepository authorizationTypeVORepository;
 
 	@Before
 	public void prepareDate() {

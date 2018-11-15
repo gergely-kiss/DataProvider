@@ -8,20 +8,20 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
 import uk.gergely.kiss.data.provider.administration.resources.AdministrationTestConstants;
-import uk.gergely.kiss.data.provider.administration.service.AuthorizationTypeService;
+import uk.gergely.kiss.data.provider.administration.service.AuthorizedUserVOService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class AuthorizationTypeServiceTest {
+public class AuthorizedUserVOServiceTest {
 
 	@Autowired
-	private AuthorizationTypeService authorizationTypeService;
+	AuthorizedUserVOService authorizedUserVOService;
 
 	@Test
-	public void getAuthorizationTypeById() {
-
+	public void getAuthorizedUserList() {
+		Assert.assertNotNull(authorizedUserVOService.getAuthorizedUserList());
+	
 	}
 }
