@@ -25,11 +25,32 @@ public class UserNameVOServiceImpl implements UserNameVOService {
 	}
 
 	@Override
-	public List<UserNameVO> getAll() {
+	public List<UserNameVO> getAllUserNameVO() {
 		LOGGER.info("getAll was called");
 		List<UserNameVO> userNameVOList = (List<UserNameVO>) userNameVORepository.findAll();
 		LOGGER.info("getAll userNameVOList");
 		return userNameVOList;
+	}
+
+	@Override
+	public void deleteUserNameVO(UserNameVO userNameVO) {
+		LOGGER.info("deleteUserNameVO was called with the UserVO: {}", userNameVO);
+		userNameVORepository.delete(userNameVO);
+
+		if (userNameVORepository.existsById(userNameVO.getId())) {
+			LOGGER.info("deleteUserNameVO: error occurred the userNameVO still exist {}", userNameVO);
+		} else {
+			LOGGER.info("deleteUserNameVO: deleted userNameVO( {} ) deleted", userNameVO);
+		}
+
+	}
+
+	@Override
+	public UserNameVO getUserNameVOByHostReference(String hostReference) {
+		LOGGER.info("getUserNameVOByHostReference was called with hostReference: {} was called", hostReference);
+		UserNameVO userNameVO = userNameVORepository.findUserNameVOByHostReference(hostReference);
+		LOGGER.info("getUserNameVOByHostReference: found {}", userNameVO);
+		return userNameVO;
 	}
 
 }

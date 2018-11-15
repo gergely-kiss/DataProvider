@@ -34,6 +34,30 @@ public class UserVO {
 	@JoinColumn(name = "id")
 	private UserNameVO userNameVO;
 
+	
+	/**
+	 * 
+	 */
+	public UserVO() {
+	}
+
+	/**
+	 * @param id
+	 * @param hostReference
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param userNameVO
+	 */
+	public UserVO(Integer id, String hostReference, String firstName, String lastName, String email,
+			UserNameVO userNameVO) {
+		this.id = id;
+		this.hostReference = hostReference;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.userNameVO = userNameVO;
+	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -57,6 +81,7 @@ public class UserVO {
 		builder.append("]");
 		return builder.toString();
 	}
+
 
 	/*
 	 * (non-Javadoc)

@@ -8,6 +8,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import org.junit.Assert;
+import org.junit.Before;
+
 import uk.gergely.kiss.data.provider.administration.model.UserNameVO;
 import uk.gergely.kiss.data.provider.administration.resources.AdministrationTestConstants;
 import uk.gergely.kiss.data.provider.administration.service.UserNameVOService;
@@ -19,15 +21,36 @@ public class UserNameVOServiceTest {
 
 	@Autowired
 	UserNameVOService userNameVOService;
+
+	public UserNameVO savedUserNameVO;
 	
-	@Test
-	public void saveUserNameVO() {
-		UserNameVO savedUserNameVO = userNameVOService.saveUserNameVO(AdministrationTestConstants.TEST_USER_NAME_VO);
+	@Before
+	public void prepareData() {
+		savedUserNameVO = userNameVOService.saveUserNameVO(AdministrationTestConstants.TEST_USER_NAME_VO);
 		Assert.assertEquals(savedUserNameVO, AdministrationTestConstants.TEST_USER_NAME_VO);
 	}
+
+	@Test
+	public void saveUserNameVO() {;
+		Assert.assertEquals(savedUserNameVO, AdministrationTestConstants.TEST_USER_NAME_VO);
+	}
+
 	@Test
 	public void getAllUserNameVO() {
-		UserNameVO savedUserNameVO = userNameVOService.saveUserNameVO(AdministrationTestConstants.TEST_USER_NAME_VO);
-		Assert.assertEquals(2, userNameVOService.getAll().size());
+		int defultNumberOfUserNameVO = userNameVOService.getAllUserNameVO().size();
+		Assert.assertTrue(defultNumberOfUserNameVO > 0);
+		Assert.assertNotNull(userNameVOService.getAllUserNameVO());
+	}
+	@Test
+	public void getUserByHostReference() {
+		UserNameVO userNameVO = userNameVOService.getUserNameVOByHostReference(savedUserNameVO.getHostReference());
+		Assert.assertNotNull(userNameVO);		
+		Assert.assertEquals(savedUserNameVO, userNameVO);
+		
+	}
+	@Test
+	public void deleteUserNameVO() {
+		userNameVOService.deleteUserNameVO(savedUserNameVO);
+		Assert.assertNull(userNameVOService.getUserNameVOByHostReference(savedUserNameVO.getHostReference()));
 	}
 }

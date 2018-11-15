@@ -8,5 +8,9 @@ public interface UserNameVOService {
 
 	public UserNameVO saveUserNameVO(UserNameVO userNameVO);
 
-	public List<UserNameVO> getAll();
+	public List<UserNameVO> getAllUserNameVO();
+
+	public void deleteUserNameVO(UserNameVO userNameVO);
+
+	public UserNameVO getUserNameVOByHostReference(String hostReference);
 }

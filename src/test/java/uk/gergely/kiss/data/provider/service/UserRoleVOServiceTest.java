@@ -17,7 +17,7 @@ import uk.gergely.kiss.data.provider.administration.service.UserRoleVOService;
 public class UserRoleVOServiceTest {
 
 	@Autowired
-	UserRoleVOService userRoleVOService;
+	private UserRoleVOService userRoleVOService;
 
 	@Test
 	public void getAllUserRolesBasic() {
