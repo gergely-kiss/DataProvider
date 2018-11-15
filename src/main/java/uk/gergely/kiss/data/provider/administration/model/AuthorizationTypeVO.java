@@ -31,12 +31,10 @@ public class AuthorizationTypeVO {
 	}
 
 	/**
-	 * @param id
 	 * @param name
 	 * @param description
 	 */
-	public AuthorizationTypeVO(Integer id, String name, String description) {
-		this.id = id;
+	public AuthorizationTypeVO( String name, String description) {
 		this.name = name;
 		this.description = description;
 	}

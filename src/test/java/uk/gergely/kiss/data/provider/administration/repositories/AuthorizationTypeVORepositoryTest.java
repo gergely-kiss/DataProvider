@@ -27,14 +27,15 @@ public class AuthorizationTypeVORepositoryTest {
 	@Test
 	public void isDefaultUserExist() {
 		AuthorizationTypeVO savedAuthorizationTypeVO = authorizationTypeVORepository
-				.findById(AdministrationTestConstants.DEFAULT_AUTHORIZATION_TYPE_VO.getId()).get();
-		Assert.assertEquals(savedAuthorizationTypeVO, AdministrationTestConstants.DEFAULT_AUTHORIZATION_TYPE_VO);
+				.findByName(AdministrationTestConstants.DEFAULT_AUTHORIZATION_TYPE_VO.getName());
+		Assert.assertEquals(savedAuthorizationTypeVO.getName(), AdministrationTestConstants.DEFAULT_AUTHORIZATION_TYPE_VO.getName());
 	}
 
 	@Test
 	public void isfPreparedDataIsSaved() {
 		AuthorizationTypeVO savedAuthorizationTypeVO = authorizationTypeVORepository
-				.findById(AdministrationTestConstants.TEST_AUTHORIZATION_TYPE_VO.getId()).get();
-		Assert.assertEquals(savedAuthorizationTypeVO, AdministrationTestConstants.TEST_AUTHORIZATION_TYPE_VO);
+				.findByName((AdministrationTestConstants.TEST_AUTHORIZATION_TYPE_VO.getName()));
+		Assert.assertNotNull(savedAuthorizationTypeVO);
+		Assert.assertEquals(AdministrationTestConstants.TEST_AUTHORIZATION_TYPE_VO.getName(), savedAuthorizationTypeVO.getName());
 	}
 }

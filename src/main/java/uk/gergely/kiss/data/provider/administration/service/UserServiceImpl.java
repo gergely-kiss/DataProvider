@@ -15,8 +15,8 @@ import uk.gergely.kiss.data.provider.administration.util.UserConverter;
 import uk.gergely.kiss.data.provider.administration.util.domain.User;
 
 @Service
-public class UserVOServiceImpl implements UserVOService {
-	Logger LOGGER = LoggerFactory.getLogger(UserVOService.class);
+public class UserServiceImpl implements UserService {
+	Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
 	@Autowired
 	UserVORepository userVORepository;
@@ -27,9 +27,9 @@ public class UserVOServiceImpl implements UserVOService {
 
 	@Override
 	public User getUserByHostReference(String hostReference) {
-		LOGGER.info("getUserVOByHostReference was called with the hostReference: {}", hostReference);
+		LOGGER.info("getUserByHostReference was called with the hostReference: {}", hostReference);
 		UserVO savedUserVO = userVORepository.findUserVOByHostReference(hostReference);
-		LOGGER.info("getUserVOByHostReference: found the following user savedUserVO: {}", savedUserVO);
+		LOGGER.info("getUserByHostReference: found the following user savedUserVO: {}", savedUserVO);
 		User user = userVOToUserConverterUtil.convert(savedUserVO);
 		return user;
 	}

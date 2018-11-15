@@ -10,11 +10,11 @@ import uk.gergely.kiss.data.provider.administration.model.AuthorizedUserVO;
 import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizedUser;
 
 @Component
-public class AuthorizedUserVOToAuthorizedUserConvertUtil {
+public class AuthorizedUserBuilder {
 	private final static Logger LOGGER = LoggerFactory
-			.getLogger(String.valueOf(AuthorizedUserVOToAuthorizedUserConvertUtil.class));
+			.getLogger(String.valueOf(AuthorizedUserBuilder.class));
 	@Autowired
-	AuthorizationTypeVOToAuthorizationTypeConverterUtil authorizationTypeVOToAuthorizationTypeConverterUtil;
+	AuthorizationTypeBuilder authorizationTypeVOToAuthorizationTypeConverterUtil;
 
 	public AuthorizedUser convert(AuthorizedUserVO authorizedUserVO) {
 		LOGGER.info("convert was called with authorizedUserVO: {}", authorizedUserVO);
@@ -24,7 +24,7 @@ public class AuthorizedUserVOToAuthorizedUserConvertUtil {
 		authorizedUser.setSalt(authorizedUserVO.getSalt());
 		authorizedUser.setUserName(authorizedUserVO.getUserNameVO().getUserName());
 		authorizedUser.setType(
-				authorizationTypeVOToAuthorizationTypeConverterUtil.convert(authorizedUserVO.getAuthorizationTypeVO()));
+				authorizationTypeVOToAuthorizationTypeConverterUtil.build(authorizedUserVO.getAuthorizationTypeVO()));
 		LOGGER.info("AuthorizedUserVOList: {} was converted to authorizedUser: {}", authorizedUserVO, authorizedUser);
 		return authorizedUser;
 	}

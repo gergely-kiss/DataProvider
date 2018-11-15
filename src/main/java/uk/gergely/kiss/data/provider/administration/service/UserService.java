@@ -4,7 +4,7 @@ import java.util.List;
 
 import uk.gergely.kiss.data.provider.administration.util.domain.User;
 
-public interface UserVOService {
+public interface UserService {
 	
 	public User getUserByHostReference(String hostReference);
 	public User saveUser(User user);

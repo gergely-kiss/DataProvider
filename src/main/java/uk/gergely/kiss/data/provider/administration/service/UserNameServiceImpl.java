@@ -1,13 +1,9 @@
 package uk.gergely.kiss.data.provider.administration.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import uk.gergely.kiss.data.provider.administration.model.UserNameVO;
 import uk.gergely.kiss.data.provider.administration.repositories.UserNameVORepository;
 
@@ -18,20 +14,10 @@ public class UserNameServiceImpl implements UserNameService {
 	UserNameVORepository userNameVORepository;
 
 	@Override
-	public String saveUserName(String userName) {
+	public void saveUserName(String userName) {
 		LOGGER.info("saveUserNameVO with UserName: {} was called", userName);
 		UserNameVO savedUserNameVO = userNameVORepository.save(new UserNameVO(userName));
 		LOGGER.info("savedUserNameVO {}", savedUserNameVO);
-		return savedUserNameVO.getUserName();
-	}
-
-	@Override
-	public List<String> getAllUserName() {
-		LOGGER.info("getAll was called");
-		List<String> userNameList = ((List<UserNameVO>) userNameVORepository.findAll()).stream()
-				.map(UserNameVO::getUserName).collect(Collectors.toList());
-		LOGGER.info("getAll userNameList {}", userNameList);
-		return userNameList;
 	}
 
 	@Override

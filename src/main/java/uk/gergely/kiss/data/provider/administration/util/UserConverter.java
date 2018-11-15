@@ -41,5 +41,4 @@ public class UserConverter {
 		LOGGER.info("UserVO: {} was converted to User: {}", userVO, user);
 		return userVO;
 	}
-
 }
