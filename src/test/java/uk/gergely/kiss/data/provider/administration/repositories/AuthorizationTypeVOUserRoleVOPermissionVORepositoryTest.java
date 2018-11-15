@@ -1,7 +1,5 @@
 package uk.gergely.kiss.data.provider.administration.repositories;
 
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,31 +22,30 @@ public class AuthorizationTypeVOUserRoleVOPermissionVORepositoryTest {
 	@Autowired
 	AuthorizationTypeVOUserRoleVOPermissionVORepository authorizationTypeVOUserRoleVOPermissionVORepository;
 
-	public AuthorizationTypeVOUserRoleVOPermissionVO testAuthorizationTypeVOUserRoleVOPermissionVO;
-	public AuthorizationTypeVOUserRoleVOPermissionVO defaultAuthorizationTypeVOUserRoleVOPermissionVO;
-
 	@Before
 	public void prepareData() {
 		userRoleVORepository.save(AdministrationTestConstants.TEST_USER_ROLE_VO);
 		authorizationTypeVORepository.save(AdministrationTestConstants.TEST_AUTHORIZATION_TYPE_VO);
-		testAuthorizationTypeVOUserRoleVOPermissionVO = AdministrationTestConstants.TEST_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO;
-		defaultAuthorizationTypeVOUserRoleVOPermissionVO = AdministrationTestConstants.DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO;
+		authorizationTypeVOUserRoleVOPermissionVORepository
+				.save(AdministrationTestConstants.TEST_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO);
 	}
 
 	@Test
 	public void isDefaultUserExist() {
-		Assert.assertTrue(authorizationTypeVOUserRoleVOPermissionVORepository
-				.findById(AdministrationTestConstants.DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO_ID)
-				.get().equals(defaultAuthorizationTypeVOUserRoleVOPermissionVO));
+		AuthorizationTypeVOUserRoleVOPermissionVO savedAuthorizationTypeVOUserRoleVOPermissionVO = authorizationTypeVOUserRoleVOPermissionVORepository
+				.findById(AdministrationTestConstants.DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO.getId())
+				.get();
+		Assert.assertEquals(savedAuthorizationTypeVOUserRoleVOPermissionVO,
+				AdministrationTestConstants.DEFAULT_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO);
 	}
 
 	@Test
 	public void isfPreparedDataIsSaved() {
-		authorizationTypeVOUserRoleVOPermissionVORepository.save(testAuthorizationTypeVOUserRoleVOPermissionVO);
-		Assert.assertTrue(
-				((List<AuthorizationTypeVOUserRoleVOPermissionVO>) (authorizationTypeVOUserRoleVOPermissionVORepository
-						.findAll())).stream()
-								.anyMatch(u -> u.equals(testAuthorizationTypeVOUserRoleVOPermissionVO)));
+		AuthorizationTypeVOUserRoleVOPermissionVO savedAuthorizationTypeVOUserRoleVOPermissionVO = authorizationTypeVOUserRoleVOPermissionVORepository
+				.findById(AdministrationTestConstants.TEST_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO.getId())
+				.get();
+		Assert.assertEquals(savedAuthorizationTypeVOUserRoleVOPermissionVO,
+				AdministrationTestConstants.TEST_AUTHORIZATIONT_TYPE_VO_USER_ROLE_VO_PERMISSION_VO);
 	}
 
 }
