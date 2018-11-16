@@ -86,6 +86,8 @@ public class AdministrationTestConstants {
 	public static final String UPDATE_USER_VO_EMAIL = "update_email@test.ts";
 	public static final UserVO TEST_USER_VO = new UserVO(TEST_USER_VO_HOST_REFERENCE,
 			TEST_USER_VO_FIRST_NAME, TEST_USER_VO_LAST_NAME, TEST_USER_VO_EMAIL, TEST_USER_NAME_VO);
+	public static final User TEST_USER = new User(TEST_USER_VO_HOST_REFERENCE, TEST_USER_VO_FIRST_NAME,
+			TEST_USER_VO_LAST_NAME, TEST_USER_VO_EMAIL, TEST_USER_NAME_VO_NAME);
 	// Domain Objects
 	public static final PermissionEnum TEST_PERMISSION = PermissionEnum.READ;
 	public static final RoleEnum TEST_ROLE = RoleEnum.USER;
@@ -103,6 +105,5 @@ public class AdministrationTestConstants {
 			DEFAULT_AUTHORIZED_USER_VO_HOST_REFERENCE, TEST_AUTHORIZED_USER_VO_SALT, TEST_AUTHORIZED_USER_VO_PASSWORD,
 			TEST_USER_NAME_VO_NAME, TEST_AUTHORIZATION_TYPE);
 
-	public static final User TEST_USER = new User(TEST_USER_VO_HOST_REFERENCE, TEST_USER_VO_FIRST_NAME,
-			TEST_USER_VO_LAST_NAME, TEST_USER_VO_EMAIL, TEST_USER_NAME_VO_NAME);
+	
 }

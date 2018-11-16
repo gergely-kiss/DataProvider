@@ -28,4 +28,5 @@ public class UserConventerTest {
 		Assert.assertEquals(AdministrationTestConstants.TEST_USER_VO,
 				userConverter.convert(AdministrationTestConstants.TEST_USER));
 	}
+	
 }

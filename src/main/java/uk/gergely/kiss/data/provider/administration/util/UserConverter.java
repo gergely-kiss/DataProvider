@@ -46,7 +46,7 @@ public class UserConverter {
 		userVO.setEmail(user.getEmail());
 		userVO.setFirstName(user.getFirstName());
 		userVO.setHostReference(user.getId());
-		userVO.setLastName(userVO.getLastName());
+		userVO.setLastName(user.getLastName());
 		userVO.setUserNameVO(userNameService.saveUserName(user.getUserName()));
 		LOGGER.info("UserVO: {} was converted to User: {}", userVO, user);
 		return userVO;

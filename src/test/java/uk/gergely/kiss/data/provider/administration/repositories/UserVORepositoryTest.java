@@ -28,5 +28,6 @@ public class UserVORepositoryTest {
 		
 		Assert.assertEquals(savedUserVO, userVORepository.findUserVOByHostReference(savedUserVO.getHostReference()));
 	}
+	
 
 }
