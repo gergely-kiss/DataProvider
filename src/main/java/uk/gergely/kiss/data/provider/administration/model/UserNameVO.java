@@ -25,6 +25,7 @@ public class UserNameVO {
 	@Column(name = "user_name")
 	private String userName;
 
+	
 	/**
 	 * 
 	 */
@@ -63,7 +64,7 @@ public class UserNameVO {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, userName);
+		return Objects.hash(userName);
 	}
 
 	/*
@@ -83,7 +84,7 @@ public class UserNameVO {
 			return false;
 		}
 		UserNameVO other = (UserNameVO) obj;
-		return Objects.equals(id, other.id) && Objects.equals(userName, other.userName);
+		return  Objects.equals(userName, other.userName);
 	}
 
 	/**

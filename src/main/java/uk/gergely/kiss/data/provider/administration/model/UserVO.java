@@ -52,9 +52,7 @@ public class UserVO {
 	 * @param email
 	 * @param userNameVO
 	 */
-	public UserVO(Integer id, String hostReference, String firstName, String lastName, String email,
-			UserNameVO userNameVO) {
-		this.id = id;
+	public UserVO(String hostReference, String firstName, String lastName, String email,UserNameVO userNameVO) {
 		this.hostReference = hostReference;
 		this.firstName = firstName;
 		this.lastName = lastName;

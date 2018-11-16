@@ -14,18 +14,18 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class UserVOToUserConventerUtilTest {
+public class UserConventerTest {
 
 	@Autowired
-	private UserConverter userVOToUserConverterUtil;
+	private UserConverter userConverter;
 
 	@Test
 	public void convert() {
 		Assert.assertEquals(Arrays.asList(AdministrationTestConstants.TEST_USER),
-				userVOToUserConverterUtil.convert(Arrays.asList(AdministrationTestConstants.TEST_USER_VO)));
+				userConverter.convert(Arrays.asList(AdministrationTestConstants.TEST_USER_VO)));
 		Assert.assertEquals(AdministrationTestConstants.TEST_USER,
-				userVOToUserConverterUtil.convert(AdministrationTestConstants.TEST_USER_VO));
-
+				userConverter.convert(AdministrationTestConstants.TEST_USER_VO));
+		Assert.assertEquals(AdministrationTestConstants.TEST_USER_VO,
+				userConverter.convert(AdministrationTestConstants.TEST_USER));
 	}
-
 }

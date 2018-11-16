@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uk.gergely.kiss.data.provider.administration.model.UserVO;
+import uk.gergely.kiss.data.provider.administration.service.UserNameService;
 import uk.gergely.kiss.data.provider.administration.util.domain.User;
 
 @Component
@@ -13,6 +15,9 @@ public class UserConverter {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(String.valueOf(UserConverter.class));
 
+	@Autowired
+	UserNameService userNameService;
+	
 	public User convert(UserVO userVO) {
 		LOGGER.info("convert was called with UserVO: {}", userVO);
 		User user = new User();
@@ -38,6 +43,11 @@ public class UserConverter {
 	public UserVO convert(User user) {
 		LOGGER.info("convert was called with UserVO: {}", user);
 		UserVO userVO = new UserVO();
+		userVO.setEmail(user.getEmail());
+		userVO.setFirstName(user.getFirstName());
+		userVO.setHostReference(user.getId());
+		userVO.setLastName(userVO.getLastName());
+		userVO.setUserNameVO(userNameService.saveUserName(user.getUserName()));
 		LOGGER.info("UserVO: {} was converted to User: {}", userVO, user);
 		return userVO;
 	}

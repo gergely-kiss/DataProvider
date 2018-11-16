@@ -22,7 +22,7 @@ public class AdministrationTestConstants {
 
 	public static final String[] PERMISSION_ENUMS_STRING_VALUES_FOR_ADMINISTRATION = { "ANY", "CREATE", "READ",
 			"EXECUTE", "DELETE" };
-	public static final String[] ROLE_ENUMS_STRING_VALUES_FOR_ADMINISTRATION = { "AUTHORIZATION", "USER", "ALL" };
+	public static final String[] ROLE_ENUMS_STRING_VALUES_FOR_ADMINISTRATION = { "ALL", "AUTHORIZATION", "USER"  };
 	// Value Objects
 	public static final String TEST_USER_ROLE_VO_NAME = "TEST_ROLE_NAME";
 	public static final Integer TEST_USER_ROLE_VO_ID = TEST_ID;
@@ -84,7 +84,7 @@ public class AdministrationTestConstants {
 	public static final String TEST_USER_VO_LAST_NAME = "test_last_name";
 	public static final String TEST_USER_VO_EMAIL = "test_email@test.ts";
 	public static final String UPDATE_USER_VO_EMAIL = "update_email@test.ts";
-	public static final UserVO TEST_USER_VO = new UserVO(TEST_USER_VO_ID, TEST_USER_VO_HOST_REFERENCE,
+	public static final UserVO TEST_USER_VO = new UserVO(TEST_USER_VO_HOST_REFERENCE,
 			TEST_USER_VO_FIRST_NAME, TEST_USER_VO_LAST_NAME, TEST_USER_VO_EMAIL, TEST_USER_NAME_VO);
 	// Domain Objects
 	public static final PermissionEnum TEST_PERMISSION = PermissionEnum.READ;

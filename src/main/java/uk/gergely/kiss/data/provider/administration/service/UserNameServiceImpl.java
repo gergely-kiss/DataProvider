@@ -14,10 +14,11 @@ public class UserNameServiceImpl implements UserNameService {
 	UserNameVORepository userNameVORepository;
 
 	@Override
-	public void saveUserName(String userName) {
+	public UserNameVO saveUserName(String userName) {
 		LOGGER.info("saveUserNameVO with UserName: {} was called", userName);
 		UserNameVO savedUserNameVO = userNameVORepository.save(new UserNameVO(userName));
 		LOGGER.info("savedUserNameVO {}", savedUserNameVO);
+		return savedUserNameVO;
 	}
 
 	@Override
