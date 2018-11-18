@@ -1,26 +1,25 @@
 package uk.gergely.kiss.data.provider.administration.service;
 
-import java.util.List;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
-import uk.gergely.kiss.data.provider.administration.repositories.UserRoleVORepository;
+import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
+import uk.gergely.kiss.data.provider.administration.repositories.AuthorizationTypeVORepository;
 
-public class UserRoleVOServiceImpl implements UserRoleVOService {
+public class AuthorizationTypeServiceImpl implements AuthorizationTypeService {
+	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizationTypeService.class);
+
 	@Autowired
-	UserRoleVORepository repo;
-
-	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizationTypeVOUserRoleVOPermissionVOService.class);
+	AuthorizationTypeVORepository repo;
 
 	@Override
-	public List<UserRoleVO> getAllUserRoles() {
-		LOGGER.info("getAllUserRoles was called");
-		List<UserRoleVO> userRoleVOList = (List<UserRoleVO>) repo.findAll();
-		LOGGER.info("getAllUserRoles: userRoleVOList: {}", userRoleVOList);
-		return userRoleVOList;
+	public AuthorizationTypeVO getAuthorizationTypeVOById(Integer id) {
+		LOGGER.info("getAuthorizationTypeVOById called with the following id: {} ", id);
+		Optional<AuthorizationTypeVO> authorizationTypeVO = repo.findById(id);
+		LOGGER.info("getAuthorizationTypeVOById: authorizationTypeVO: {}", authorizationTypeVO.get());
+		return authorizationTypeVO.get();
 	}
-
 }
