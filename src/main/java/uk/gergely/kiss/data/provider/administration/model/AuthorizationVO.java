@@ -13,8 +13,8 @@ import javax.persistence.UniqueConstraint;
  *
  */
 @Entity
-@Table(name = "user_roles", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
-public class UserRoleVO {
+@Table(name = "authorization", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
+public class AuthorizationVO {
 
 	@Id
 	private Integer id;
@@ -26,14 +26,14 @@ public class UserRoleVO {
 	/**
 	 * 
 	 */
-	public UserRoleVO() {
+	public AuthorizationVO() {
 	}
 
 	/**
 	 * @param id
 	 * @param name
 	 */
-	public UserRoleVO(Integer id, String name) {
+	public AuthorizationVO(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -46,7 +46,7 @@ public class UserRoleVO {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("UserRoleVO [id=");
+		builder.append("AuthorizationVO [id=");
 		builder.append(id);
 		builder.append(", name=");
 		builder.append(name);
@@ -77,10 +77,10 @@ public class UserRoleVO {
 		if (obj == null) {
 			return false;
 		}
-		if (!(obj instanceof UserRoleVO)) {
+		if (!(obj instanceof AuthorizationVO)) {
 			return false;
 		}
-		UserRoleVO other = (UserRoleVO) obj;
+		AuthorizationVO other = (AuthorizationVO) obj;
 		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
 	}
 

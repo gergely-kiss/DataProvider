@@ -30,7 +30,7 @@ public class AuthorizedUserVO {
 	private UserNameVO userNameVO;
 	@OneToOne
 	@JoinColumn(name = "id")
-	private AuthorizationTypeVO authorizationTypeVO;
+	private UserRoleVO authorizationTypeVO;
 	
 	
 
@@ -51,7 +51,7 @@ public class AuthorizedUserVO {
 	
 	
 	public AuthorizedUserVO(Integer id, String hostReference, String salt, String password, UserNameVO userNameVO,
-			AuthorizationTypeVO authorizationTypeVO) {
+			UserRoleVO authorizationTypeVO) {
 		this.id = id;
 		this.hostReference = hostReference;
 		this.salt = salt;
@@ -68,7 +68,7 @@ public class AuthorizedUserVO {
 	 * @param authorizationTypeVO
 	 */
 	public AuthorizedUserVO(Integer id, String salt, String password, UserNameVO userNameVO,
-			AuthorizationTypeVO authorizationTypeVO) {
+			UserRoleVO authorizationTypeVO) {
 		this.id = id;
 		this.salt = salt;
 		this.password = password;
@@ -206,14 +206,14 @@ public class AuthorizedUserVO {
 	/**
 	 * @return the authorizationTypeVO
 	 */
-	public AuthorizationTypeVO getAuthorizationTypeVO() {
+	public UserRoleVO getAuthorizationTypeVO() {
 		return authorizationTypeVO;
 	}
 
 	/**
 	 * @param authorizationTypeVO the authorizationTypeVO to set
 	 */
-	public void setAuthorizationTypeVO(AuthorizationTypeVO authorizationTypeVO) {
+	public void setAuthorizationTypeVO(UserRoleVO authorizationTypeVO) {
 		this.authorizationTypeVO = authorizationTypeVO;
 	}
 

@@ -13,8 +13,8 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "authorization_types")
-public class AuthorizationTypeVO {
+@Table(name = "user_role")
+public class UserRoleVO {
 
 	@Id
 	private Integer id;
@@ -24,7 +24,7 @@ public class AuthorizationTypeVO {
 	/**
 	 * 
 	 */
-	public AuthorizationTypeVO() {
+	public UserRoleVO() {
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class AuthorizationTypeVO {
 	 * @param name
 	 * @param description
 	 */
-	public AuthorizationTypeVO(Integer id, String name, String description) {
+	public UserRoleVO(Integer id, String name, String description) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -79,10 +79,10 @@ public class AuthorizationTypeVO {
 		if (obj == null) {
 			return false;
 		}
-		if (!(obj instanceof AuthorizationTypeVO)) {
+		if (!(obj instanceof UserRoleVO)) {
 			return false;
 		}
-		AuthorizationTypeVO other = (AuthorizationTypeVO) obj;
+		UserRoleVO other = (UserRoleVO) obj;
 		return Objects.equals(description, other.description) && Objects.equals(id, other.id)
 				&& Objects.equals(name, other.name);
 	}

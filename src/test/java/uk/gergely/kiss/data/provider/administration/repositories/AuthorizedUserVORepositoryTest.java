@@ -21,9 +21,9 @@ public class AuthorizedUserVORepositoryTest {
 	@Autowired
 	private UserNameVORepository userNameVORepository;
 	@Autowired
-	private UserRoleVORepository userRoleVORepository;
+	private AuthorizationVORepository userRoleVORepository;
 	@Autowired
-	private AuthorizationTypeVORepository authorizationTypeVORepository;
+	private UserRoleVORepository authorizationTypeVORepository;
 	@Autowired
 	private AuthorizationTypeVOUserRoleVOPermissionVORepository authorizationTypeVOUserRoleVOPermissionVORepository;
 

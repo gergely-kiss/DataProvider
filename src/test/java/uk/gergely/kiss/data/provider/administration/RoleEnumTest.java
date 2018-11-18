@@ -17,7 +17,7 @@ public class RoleEnumTest {
 	@Test
 	public void isAllAdminEnumExist() {
 		for (String s : ROLE_ENUMS_STRING_VALUES_FOR_ADMINISTRATION) {
-			Assert.assertNotNull(RoleEnum.valueOf(s));
+			Assert.assertNotNull(AuthorizationEnum.valueOf(s));
 		}
 	}
 	

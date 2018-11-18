@@ -2,9 +2,9 @@ package uk.gergely.kiss.data.provider.administration.service;
 
 import java.util.List;
 
-import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
+import uk.gergely.kiss.data.provider.administration.model.AuthorizationVO;
 
-public interface UserRoleVOService {
+public interface AuthorizationVOService {
 
-	public List<UserRoleVO> getAllUserRoles();
+	public List<AuthorizationVO> getAllUserRoles();
 }

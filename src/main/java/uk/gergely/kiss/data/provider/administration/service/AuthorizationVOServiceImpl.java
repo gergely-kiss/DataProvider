@@ -6,19 +6,19 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
-import uk.gergely.kiss.data.provider.administration.repositories.UserRoleVORepository;
+import uk.gergely.kiss.data.provider.administration.model.AuthorizationVO;
+import uk.gergely.kiss.data.provider.administration.repositories.AuthorizationVORepository;
 
-public class UserRoleVOServiceImpl implements UserRoleVOService {
+public class AuthorizationVOServiceImpl implements AuthorizationVOService {
 	@Autowired
-	UserRoleVORepository repo;
+	AuthorizationVORepository repo;
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizationTypeVOUserRoleVOPermissionVOService.class);
 
 	@Override
-	public List<UserRoleVO> getAllUserRoles() {
+	public List<AuthorizationVO> getAllUserRoles() {
 		LOGGER.info("getAllUserRoles was called");
-		List<UserRoleVO> userRoleVOList = (List<UserRoleVO>) repo.findAll();
+		List<AuthorizationVO> userRoleVOList = (List<AuthorizationVO>) repo.findAll();
 		LOGGER.info("getAllUserRoles: userRoleVOList: {}", userRoleVOList);
 		return userRoleVOList;
 	}

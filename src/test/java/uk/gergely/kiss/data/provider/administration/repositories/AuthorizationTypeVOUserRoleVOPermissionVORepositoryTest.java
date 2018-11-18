@@ -16,9 +16,9 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 @Transactional
 public class AuthorizationTypeVOUserRoleVOPermissionVORepositoryTest {
 	@Autowired
-	UserRoleVORepository userRoleVORepository;
+	AuthorizationVORepository userRoleVORepository;
 	@Autowired
-	AuthorizationTypeVORepository authorizationTypeVORepository;
+	UserRoleVORepository authorizationTypeVORepository;
 	@Autowired
 	AuthorizationTypeVOUserRoleVOPermissionVORepository authorizationTypeVOUserRoleVOPermissionVORepository;
 

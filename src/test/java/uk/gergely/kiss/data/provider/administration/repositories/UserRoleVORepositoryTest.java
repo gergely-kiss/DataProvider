@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import org.junit.Assert;
-import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
+import uk.gergely.kiss.data.provider.administration.model.AuthorizationVO;
 import uk.gergely.kiss.data.provider.administration.resources.AdministrationTestConstants;
 
 @RunWith(SpringRunner.class)
@@ -17,7 +17,7 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 public class UserRoleVORepositoryTest {
 
 	@Autowired
-	UserRoleVORepository userRoleVORepository;
+	AuthorizationVORepository userRoleVORepository;
 
 	@Before
 	public void prepareData() {
@@ -26,14 +26,14 @@ public class UserRoleVORepositoryTest {
 
 	@Test
 	public void isDefaultUserExist() {
-		UserRoleVO savedUserRoleVO = userRoleVORepository
+		AuthorizationVO savedUserRoleVO = userRoleVORepository
 				.findById(AdministrationTestConstants.DEFAULT_USER_ROLE_VO.getId()).get();
 		Assert.assertEquals(savedUserRoleVO, AdministrationTestConstants.DEFAULT_USER_ROLE_VO);
 	}
 
 	@Test
 	public void isfPreparedDataIsSaved() {
-		UserRoleVO savedUserRoleVO = userRoleVORepository
+		AuthorizationVO savedUserRoleVO = userRoleVORepository
 				.findById(AdministrationTestConstants.TEST_USER_ROLE_VO.getId()).get();
 		Assert.assertEquals(savedUserRoleVO, AdministrationTestConstants.TEST_USER_ROLE_VO);
 	}

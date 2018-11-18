@@ -3,11 +3,11 @@ package uk.gergely.kiss.data.provider.administration.util.domain;
 import java.util.Objects;
 
 import uk.gergely.kiss.data.provider.administration.PermissionEnum;
-import uk.gergely.kiss.data.provider.administration.RoleEnum;
+import uk.gergely.kiss.data.provider.administration.AuthorizationEnum;
 
-public class RolePermission {
+public class AuthorizationPermission {
 
-	private RoleEnum role;
+	private AuthorizationEnum role;
 	private PermissionEnum permission;
 
 	/*
@@ -18,7 +18,7 @@ public class RolePermission {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("RolePermission [role=");
+		builder.append("AuthorizationPermission [Authorization=");
 		builder.append(role);
 		builder.append(", permission=");
 		builder.append(permission);
@@ -49,10 +49,10 @@ public class RolePermission {
 		if (obj == null) {
 			return false;
 		}
-		if (!(obj instanceof RolePermission)) {
+		if (!(obj instanceof AuthorizationPermission)) {
 			return false;
 		}
-		RolePermission other = (RolePermission) obj;
+		AuthorizationPermission other = (AuthorizationPermission) obj;
 		return Objects.equals(permission, other.permission) && Objects.equals(role, other.role);
 	}
 
@@ -61,14 +61,14 @@ public class RolePermission {
 	/**
 	 * @return the role
 	 */
-	public RoleEnum getRole() {
+	public AuthorizationEnum getRole() {
 		return role;
 	}
 
 	/**
 	 * @param role the role to set
 	 */
-	public void setRole(RoleEnum role) {
+	public void setRole(AuthorizationEnum role) {
 		this.role = role;
 	}
 

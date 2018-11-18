@@ -1,10 +1,10 @@
 package uk.gergely.kiss.data.provider.administration.resources;
 
-import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
+import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVOUserRoleVOPermissionVO;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizedUserVO;
 import uk.gergely.kiss.data.provider.administration.model.UserNameVO;
-import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
+import uk.gergely.kiss.data.provider.administration.model.AuthorizationVO;
 
 public class AdministrationTestConstants {
 
@@ -12,8 +12,8 @@ public class AdministrationTestConstants {
 	public static final Integer TEST_USER_ROLE_VO_ID = 9;
 	public static final String DEFAULT_USER_ROLE_VO_NAME = "ALL";
 	public static final Integer DEFAULT_USER_ROLE_VO_ID = 1;
-	public static final UserRoleVO TEST_USER_ROLE_VO = new UserRoleVO(TEST_USER_ROLE_VO_ID, TEST_USER_ROLE_VO_NAME);
-	public static final UserRoleVO DEFAULT_USER_ROLE_VO = new UserRoleVO(DEFAULT_USER_ROLE_VO_ID,
+	public static final AuthorizationVO TEST_USER_ROLE_VO = new AuthorizationVO(TEST_USER_ROLE_VO_ID, TEST_USER_ROLE_VO_NAME);
+	public static final AuthorizationVO DEFAULT_USER_ROLE_VO = new AuthorizationVO(DEFAULT_USER_ROLE_VO_ID,
 			DEFAULT_USER_ROLE_VO_NAME);
 
 	public static final String TEST_AUTHORIZATION_TYPE_VO_NAME = "TEST_AUTHORIZATION_TYPE_NAME";
@@ -22,9 +22,9 @@ public class AdministrationTestConstants {
 	public static final String DEFAULT_AUTHORIZATION_TYPE_VO_NAME = "SUPERUSER";
 	public static final String DEFAULT_AUTHORIZATION_TYPE_VO_DESCRIPTION = "Authorization for everything";
 	public static final Integer DEFAULT_AUTHORIZATION_TYPE_VO_ID = 1;
-	public static final AuthorizationTypeVO TEST_AUTHORIZATION_TYPE_VO = new AuthorizationTypeVO(
+	public static final UserRoleVO TEST_AUTHORIZATION_TYPE_VO = new UserRoleVO(
 			TEST_AUTHORIZATION_TYPE_VO_ID, TEST_USER_ROLE_VO_NAME, TEST_AUTHORIZATION_TYPE_VO_DESCRIPTION);
-	public static final AuthorizationTypeVO DEFAULT_AUTHORIZATION_TYPE_VO = new AuthorizationTypeVO(
+	public static final UserRoleVO DEFAULT_AUTHORIZATION_TYPE_VO = new UserRoleVO(
 			DEFAULT_AUTHORIZATION_TYPE_VO_ID, DEFAULT_AUTHORIZATION_TYPE_VO_NAME,
 			DEFAULT_AUTHORIZATION_TYPE_VO_DESCRIPTION);
 

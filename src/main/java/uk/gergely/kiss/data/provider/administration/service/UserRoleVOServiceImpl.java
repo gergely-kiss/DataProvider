@@ -6,19 +6,19 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
-import uk.gergely.kiss.data.provider.administration.repositories.AuthorizationTypeVORepository;
+import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
+import uk.gergely.kiss.data.provider.administration.repositories.UserRoleVORepository;
 
-public class AuthorizationTypeServiceImpl implements AuthorizationTypeService {
-	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizationTypeService.class);
+public class UserRoleVOServiceImpl implements UserRoleVOService {
+	private final static Logger LOGGER = LoggerFactory.getLogger(UserRoleVOService.class);
 
 	@Autowired
-	AuthorizationTypeVORepository repo;
+	UserRoleVORepository repo;
 
 	@Override
-	public AuthorizationTypeVO getAuthorizationTypeVOById(Integer id) {
+	public UserRoleVO getAuthorizationTypeVOById(Integer id) {
 		LOGGER.info("getAuthorizationTypeVOById called with the following id: {} ", id);
-		Optional<AuthorizationTypeVO> authorizationTypeVO = repo.findById(id);
+		Optional<UserRoleVO> authorizationTypeVO = repo.findById(id);
 		LOGGER.info("getAuthorizationTypeVOById: authorizationTypeVO: {}", authorizationTypeVO.get());
 		return authorizationTypeVO.get();
 	}

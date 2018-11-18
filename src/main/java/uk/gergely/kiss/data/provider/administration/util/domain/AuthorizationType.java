@@ -7,7 +7,7 @@ public class AuthorizationType {
 
 	private String name;
 	private String description;
-	private List<RolePermission> rolePermissionList;
+	private List<AuthorizationPermission> rolePermissionList;
 
 	
 	/* (non-Javadoc)
@@ -77,13 +77,13 @@ public class AuthorizationType {
 	/**
 	 * @return the rolePermissionList
 	 */
-	public List<RolePermission> getRolePermissionList() {
+	public List<AuthorizationPermission> getRolePermissionList() {
 		return rolePermissionList;
 	}
 	/**
 	 * @param rolePermissionList the rolePermissionList to set
 	 */
-	public void setRolePermissionList(List<RolePermission> rolePermissionList) {
+	public void setRolePermissionList(List<AuthorizationPermission> rolePermissionList) {
 		this.rolePermissionList = rolePermissionList;
 	};
 
