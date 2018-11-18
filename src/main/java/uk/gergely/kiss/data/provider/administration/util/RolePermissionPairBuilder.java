@@ -1,16 +1,9 @@
 package uk.gergely.kiss.data.provider.administration.util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.hibernate.validator.internal.engine.messageinterpolation.parser.TokenCollector;
-import org.jboss.logging.MessageLogger;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import uk.gergely.kiss.data.provider.administration.PermissionEnum;
 import uk.gergely.kiss.data.provider.administration.RoleEnum;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVOUserRoleVOPermissionVO;
