@@ -4,22 +4,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
-import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizationType;
+import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
+import uk.gergely.kiss.data.provider.administration.util.domain.Role;
 
 @Component
 public class AuthorizationTypeBuilder {
 	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizationTypeBuilder.class);
 
 	@Autowired
-	private RolePermissionPairBuilder rolePermissionPairBuilder;
+	private AuthorizationTypeEnumPermissionEnumPairBuilder rolePermissionPairBuilder;
 
-	public AuthorizationType build(AuthorizationTypeVO authorizationTypeVO) {
+	public Role build(UserRoleVO authorizationTypeVO) {
 		LOGGER.info("convert was called with authorizationTypeVO: " + authorizationTypeVO);
-		AuthorizationType authorizationType = new AuthorizationType();
+		Role authorizationType = new Role();
 		authorizationType.setName(authorizationTypeVO.getName());
 		authorizationType.setDescription(authorizationTypeVO.getDescription());
-		authorizationType.setRolePermissionList(rolePermissionPairBuilder.build(authorizationTypeVO.getId()));
+		authorizationType.setAuthorizationTypePermissionPairList(rolePermissionPairBuilder.build(authorizationTypeVO.getId()));
 		LOGGER.info("convert: authorizationTypeVO: {}, was converted to authorizationType: {}", authorizationTypeVO,
 				authorizationType);
 		return authorizationType;

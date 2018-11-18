@@ -22,6 +22,5 @@ public class AuthorizedUserVOServiceTest {
 	@Test
 	public void getAuthorizedUserList() {
 		Assert.assertNotNull(authorizedUserVOService.getAuthorizedUserList());
-	
 	}
 }

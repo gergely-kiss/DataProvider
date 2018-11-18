@@ -3,18 +3,18 @@ package uk.gergely.kiss.data.provider.administration.util.domain;
 import java.util.List;
 import java.util.Objects;
 
-public class AuthorizationType {
+public class Role {
 
 	private String name;
 	private String description;
-	private List<RolePermissionPair> rolePermissionList;
+	private List<AuthorizationTypeEnumPermissionEnumPair> authorizationTypePermissionPairList;
 
 	
 	
 	/**
 	 * 
 	 */
-	public AuthorizationType() {
+	public Role() {
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -26,8 +26,8 @@ public class AuthorizationType {
 		builder.append(name);
 		builder.append(", description=");
 		builder.append(description);
-		builder.append(", rolePermissionList=");
-		builder.append(rolePermissionList);
+		builder.append(", authorizationTypePermissionPairList=");
+		builder.append(authorizationTypePermissionPairList);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -36,17 +36,17 @@ public class AuthorizationType {
 	 * @param description
 	 * @param rolePermissionList
 	 */
-	public AuthorizationType(String name, String description, List<RolePermissionPair> rolePermissionList) {
+	public Role(String name, String description, List<AuthorizationTypeEnumPermissionEnumPair> rolePermissionList) {
 		this.name = name;
 		this.description = description;
-		this.rolePermissionList = rolePermissionList;
+		this.authorizationTypePermissionPairList = rolePermissionList;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, name, rolePermissionList);
+		return Objects.hash(description, name, authorizationTypePermissionPairList);
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -59,12 +59,12 @@ public class AuthorizationType {
 		if (obj == null) {
 			return false;
 		}
-		if (!(obj instanceof AuthorizationType)) {
+		if (!(obj instanceof Role)) {
 			return false;
 		}
-		AuthorizationType other = (AuthorizationType) obj;
+		Role other = (Role) obj;
 		return Objects.equals(description, other.description) && Objects.equals(name, other.name)
-				&& Objects.equals(rolePermissionList, other.rolePermissionList);
+				&& Objects.equals(authorizationTypePermissionPairList, other.authorizationTypePermissionPairList);
 	}
 	/**
 	 * @return the name
@@ -91,16 +91,16 @@ public class AuthorizationType {
 		this.description = description;
 	}
 	/**
-	 * @return the rolePermissionList
+	 * @return the authorizationTypePermissionPairList
 	 */
-	public List<RolePermissionPair> getRolePermissionList() {
-		return rolePermissionList;
+	public List<AuthorizationTypeEnumPermissionEnumPair> getAuthorizationTypePermissionPairList() {
+		return authorizationTypePermissionPairList;
 	}
 	/**
-	 * @param rolePermissionList the rolePermissionList to set
+	 * @param authorizationTypePermissionPairList the authorizationTypePermissionPairList to set
 	 */
-	public void setRolePermissionList(List<RolePermissionPair> rolePermissionList) {
-		this.rolePermissionList = rolePermissionList;
+	public void setAuthorizationTypePermissionPairList(List<AuthorizationTypeEnumPermissionEnumPair> authorizationTypePermissionPairList) {
+		this.authorizationTypePermissionPairList = authorizationTypePermissionPairList;
 	};
 
 

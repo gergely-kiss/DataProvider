@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
+import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
 import uk.gergely.kiss.data.provider.administration.resources.AdministrationTestConstants;
 
 @RunWith(SpringRunner.class)
@@ -19,13 +19,13 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 public class UserRoleVORepositoryTest {
 
 	@Autowired
-	private UserRoleVORepository userRoleVORepository;
+	private AuthorizationTypeVORepository userRoleVORepository;
 
 	@Test
 	public void isAllDefaultRolesArePresen() {
-		List<String> savedUserRoles = ((List<UserRoleVO>) userRoleVORepository.findAll()).stream().map(UserRoleVO::getName)
+		List<String> savedUserRoles = ((List<AuthorizationTypeVO>) userRoleVORepository.findAll()).stream().map(AuthorizationTypeVO::getName)
 				.collect(Collectors.toList());
-		Arrays.asList(AdministrationTestConstants.ROLE_ENUMS_STRING_VALUES_FOR_ADMINISTRATION).stream().forEach(s -> {
+		Arrays.asList(AdministrationTestConstants.AUTHORIZATION_TYPE_ENUMS_STRING_VALUES_FOR_ADMINISTRATION).stream().forEach(s -> {
 			Assert.assertTrue(savedUserRoles.contains(s));
 		});
 

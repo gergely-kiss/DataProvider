@@ -20,11 +20,6 @@ public class UserNameVORepositoryTest {
 	private UserNameVORepository userNameVORepository;
 
 	@Test
-	public void isDefaultUserExist() {
-		Assert.assertNotNull(userNameVORepository.findById(AdministrationTestConstants.DEFAULT_USER_NAME_VO_ID));
-	}
-
-	@Test
 	public void delete() {
 		UserNameVO savedUserNameVO = userNameVORepository.save(AdministrationTestConstants.TEST_USER_NAME_VO);
 		int savedUserNameVOCount = ((List<UserNameVO>) userNameVORepository.findAll()).size();

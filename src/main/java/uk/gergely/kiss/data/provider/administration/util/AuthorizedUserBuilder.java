@@ -11,8 +11,7 @@ import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizedUser;
 
 @Component
 public class AuthorizedUserBuilder {
-	private final static Logger LOGGER = LoggerFactory
-			.getLogger(String.valueOf(AuthorizedUserBuilder.class));
+	private final static Logger LOGGER = LoggerFactory.getLogger(String.valueOf(AuthorizedUserBuilder.class));
 	@Autowired
 	AuthorizationTypeBuilder authorizationTypeVOToAuthorizationTypeConverterUtil;
 
@@ -23,7 +22,7 @@ public class AuthorizedUserBuilder {
 		authorizedUser.setPassword(authorizedUserVO.getPassword());
 		authorizedUser.setSalt(authorizedUserVO.getSalt());
 		authorizedUser.setUserName(authorizedUserVO.getUserNameVO().getUserName());
-		authorizedUser.setType(
+		authorizedUser.setRole(
 				authorizationTypeVOToAuthorizationTypeConverterUtil.build(authorizedUserVO.getAuthorizationTypeVO()));
 		LOGGER.info("AuthorizedUserVOList: {} was converted to authorizedUser: {}", authorizedUserVO, authorizedUser);
 		return authorizedUser;
@@ -32,9 +31,7 @@ public class AuthorizedUserBuilder {
 	public List<AuthorizedUser> convert(List<AuthorizedUserVO> authorizedUserVOList) {
 		LOGGER.info("convert was called with authorizedUserVOList {} ", authorizedUserVOList);
 		List<AuthorizedUser> authorizedUserList = new ArrayList<>();
-		for (AuthorizedUserVO authorizedUserVO : authorizedUserVOList) {
-			authorizedUserList.add(convert(authorizedUserVO));
-		}
+		authorizedUserVOList.forEach(a -> authorizedUserList.add(convert(a)));
 		LOGGER.info("AuthorizedUserVOList: {} was converted to authorizedUserList: {}", authorizedUserVOList,
 				authorizedUserList);
 		return authorizedUserList;

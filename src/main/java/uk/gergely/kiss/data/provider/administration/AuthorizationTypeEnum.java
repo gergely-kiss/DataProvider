@@ -1,5 +1,5 @@
 package uk.gergely.kiss.data.provider.administration;
 
-public enum RoleEnum {
+public enum AuthorizationTypeEnum {
 	AUTHORIZATION, USER, ALL;
 }

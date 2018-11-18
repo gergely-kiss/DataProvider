@@ -2,28 +2,30 @@ package uk.gergely.kiss.data.provider.administration.model;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.UniqueConstraint;
 /**
- * Value object to store authorization types
- * 
+ * Value object to store the user roles
  * @author kiss-
  *
  */
 @Entity
-@Table(name = "authorization_types")
+@Table(name = "authorization_types", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
 public class AuthorizationTypeVO {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	@Column
 	private String name;
-	private String description;
 
+	
+	
 	/**
 	 * 
 	 */
@@ -31,12 +33,12 @@ public class AuthorizationTypeVO {
 	}
 
 	/**
+	 * @param id
 	 * @param name
-	 * @param description
 	 */
-	public AuthorizationTypeVO( String name, String description) {
+	public AuthorizationTypeVO(Integer id, String name) {
+		this.id = id;
 		this.name = name;
-		this.description = description;
 	}
 
 	/*
@@ -47,12 +49,10 @@ public class AuthorizationTypeVO {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("AuthorizationTypeVO [id=");
+		builder.append("UserRoleVO [id=");
 		builder.append(id);
 		builder.append(", name=");
 		builder.append(name);
-		builder.append(", description=");
-		builder.append(description);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -64,7 +64,7 @@ public class AuthorizationTypeVO {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, id, name);
+		return Objects.hash(id, name);
 	}
 
 	/*
@@ -84,8 +84,7 @@ public class AuthorizationTypeVO {
 			return false;
 		}
 		AuthorizationTypeVO other = (AuthorizationTypeVO) obj;
-		return Objects.equals(description, other.description) && Objects.equals(id, other.id)
-				&& Objects.equals(name, other.name);
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
 	}
 
 	/**
@@ -114,20 +113,6 @@ public class AuthorizationTypeVO {
 	 */
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 }

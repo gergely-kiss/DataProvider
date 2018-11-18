@@ -13,12 +13,12 @@ import org.junit.Assert;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class RoleEnumTest {
+public class AuthorizationTypeEnumTest {
 	
 	@Test
 	public void isAllAdminEnumExist() {
-		for (String s : AdministrationTestConstants.ROLE_ENUMS_STRING_VALUES_FOR_ADMINISTRATION) {
-			Assert.assertNotNull(RoleEnum.valueOf(s));
+		for (String s : AdministrationTestConstants.AUTHORIZATION_TYPE_ENUMS_STRING_VALUES_FOR_ADMINISTRATION) {
+			Assert.assertNotNull(AuthorizationTypeEnum.valueOf(s));
 		}
 	}
 	

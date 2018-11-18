@@ -1,4 +1,4 @@
-CREATE TABLE `user_roles` (
+CREATE TABLE `authorization_types` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),

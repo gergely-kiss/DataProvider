@@ -3,5 +3,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import uk.gergely.kiss.data.provider.administration.model.AuthorizationTypeVO;
 public interface AuthorizationTypeVORepository extends CrudRepository<AuthorizationTypeVO, Integer>{
-	public AuthorizationTypeVO findByName(String name);
+
 }
