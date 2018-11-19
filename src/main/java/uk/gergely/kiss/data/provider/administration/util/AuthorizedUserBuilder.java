@@ -13,7 +13,7 @@ import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizedUser;
 public class AuthorizedUserBuilder {
 	private final static Logger LOGGER = LoggerFactory.getLogger(String.valueOf(AuthorizedUserBuilder.class));
 	@Autowired
-	AuthorizationTypeBuilder authorizationTypeVOToAuthorizationTypeConverterUtil;
+	RoleBuilder roleBuilderUtil;
 
 	public AuthorizedUser convert(AuthorizedUserVO authorizedUserVO) {
 		LOGGER.info("convert was called with authorizedUserVO: {}", authorizedUserVO);
@@ -23,7 +23,7 @@ public class AuthorizedUserBuilder {
 		authorizedUser.setSalt(authorizedUserVO.getSalt());
 		authorizedUser.setUserName(authorizedUserVO.getUserNameVO().getUserName());
 		authorizedUser.setRole(
-				authorizationTypeVOToAuthorizationTypeConverterUtil.build(authorizedUserVO.getAuthorizationTypeVO()));
+				roleBuilderUtil.build(authorizedUserVO.getUserRoleVO()));
 		LOGGER.info("AuthorizedUserVOList: {} was converted to authorizedUser: {}", authorizedUserVO, authorizedUser);
 		return authorizedUser;
 	}

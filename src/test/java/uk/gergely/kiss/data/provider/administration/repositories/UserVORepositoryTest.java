@@ -25,8 +25,11 @@ public class UserVORepositoryTest {
 	public void findUserVOByHostReference() {
 		userNameVORepository.save(AdministrationTestConstants.TEST_USER_NAME_VO);
 		UserVO savedUserVO = userVORepository.save(AdministrationTestConstants.TEST_USER_VO);
-		
 		Assert.assertEquals(savedUserVO, userVORepository.findUserVOByHostReference(savedUserVO.getHostReference()));
+	}
+	@Test
+	public void findUserVOByHostReferenceUserNotExist() {
+		Assert.assertNull(userVORepository.findUserVOByHostReference(AdministrationTestConstants.TEST_USER_VO.getHostReference()));
 	}
 	
 

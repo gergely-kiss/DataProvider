@@ -16,17 +16,17 @@ import uk.gergely.kiss.data.provider.administration.resources.AdministrationTest
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class UserRoleVORepositoryTest {
+public class AuthorizationTypeVORRepositoryTest {
 
 	@Autowired
-	private AuthorizationTypeVORepository userRoleVORepository;
+	private AuthorizationTypeVORepository repo;
 
 	@Test
 	public void isAllDefaultRolesArePresen() {
-		List<String> savedUserRoles = ((List<AuthorizationTypeVO>) userRoleVORepository.findAll()).stream().map(AuthorizationTypeVO::getName)
+		List<String> savedAuthorizationTypeVOList = ((List<AuthorizationTypeVO>) repo.findAll()).stream().map(AuthorizationTypeVO::getName)
 				.collect(Collectors.toList());
 		Arrays.asList(AdministrationTestConstants.AUTHORIZATION_TYPE_ENUMS_STRING_VALUES_FOR_ADMINISTRATION).stream().forEach(s -> {
-			Assert.assertTrue(savedUserRoles.contains(s));
+			Assert.assertTrue(savedAuthorizationTypeVOList.contains(s));
 		});
 
 	}

@@ -27,12 +27,24 @@ public class UserNameVORepositoryTest {
 		int savedUserNameVOCountAfterDelete = ((List<UserNameVO>) userNameVORepository.findAll()).size();
 		Assert.assertTrue(savedUserNameVOCount > savedUserNameVOCountAfterDelete);
 	}
-	
+	@Test
+	public void deleteUserNotExist() {
+		UserNameVO userNameVO = AdministrationTestConstants.TEST_USER_NAME_VO;
+		int savedUserNameVOCount = ((List<UserNameVO>) userNameVORepository.findAll()).size();
+		userNameVORepository.delete(userNameVO);
+		int savedUserNameVOCountAfterDelete = ((List<UserNameVO>) userNameVORepository.findAll()).size();
+		Assert.assertTrue(savedUserNameVOCount == savedUserNameVOCountAfterDelete);
+	}
 	@Test
 	public void findByName() {
 		UserNameVO savedUserNameVO = userNameVORepository.save(AdministrationTestConstants.TEST_USER_NAME_VO);
 		UserNameVO foundUserNameVO = userNameVORepository.findByUserName(savedUserNameVO.getUserName());
 		Assert.assertEquals(savedUserNameVO, foundUserNameVO);
+	}
+	@Test
+	public void findByNameNameNotExist() {
+		UserNameVO userNameVO = userNameVORepository.findByUserName(AdministrationTestConstants.TEST_USER_NAME_VO_NON_EXISTING);
+		Assert.assertNull(userNameVO);
 	}
 	
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uk.gergely.kiss.data.provider.administration.model.UserRoleVO;
 import uk.gergely.kiss.data.provider.administration.repositories.UserRoleVORepository;
-import uk.gergely.kiss.data.provider.administration.util.AuthorizationTypeBuilder;
+import uk.gergely.kiss.data.provider.administration.util.RoleBuilder;
 import uk.gergely.kiss.data.provider.administration.util.domain.Role;
 
 @Service
@@ -16,7 +16,7 @@ public class UserRoleServiceImpl implements UserRoleService {
 	@Autowired
 	private UserRoleVORepository repo;
 	@Autowired
-	private AuthorizationTypeBuilder builder;
+	private RoleBuilder builder;
 
 	@Override
 	public Role getAuthorizationTypeVOByName(String name) {

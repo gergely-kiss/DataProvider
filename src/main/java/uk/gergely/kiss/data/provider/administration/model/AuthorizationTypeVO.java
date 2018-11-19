@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
 /**
  * Value object to store the user roles
+ * 
  * @author kiss-
  *
  */
@@ -19,13 +21,11 @@ import javax.persistence.UniqueConstraint;
 public class AuthorizationTypeVO {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@Column
 	private String name;
 
-	
-	
 	/**
 	 * 
 	 */
@@ -33,11 +33,11 @@ public class AuthorizationTypeVO {
 	}
 
 	/**
-	 * @param id
+	 * 
 	 * @param name
 	 */
-	public AuthorizationTypeVO(Integer id, String name) {
-		this.id = id;
+	public AuthorizationTypeVO(String name) {
+
 		this.name = name;
 	}
 
