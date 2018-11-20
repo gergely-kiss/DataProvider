@@ -28,23 +28,18 @@ public class AuthorizedUserVOToAuthorizedUserConvertUtilTest {
 	@Autowired
 	private AuthorizedUserVORepository authorizedUserVORepository;
 	@Autowired
-	private AuthorizedUserVOToAuthorizedUserConvertUtil authorizedUserVOToAuthorizedUserConvertUtil;
-	@Autowired
-	AuthorizationTypeVOToAuthorizationTypeConverterUtil authorizationTypeVOToAuthorizationTypeConverterUtil;
+	private AuthorizedUserBuilder authorizedUserBuilder;
 
 	@Test
 	public void getAuthorizedUserByHostreference() {
-		List<AuthorizedUserVO> authorizedUserVOList = (List<AuthorizedUserVO>) authorizedUserVORepository.findAll();
+		List<AuthorizedUserVO> authorizedUserVOList = (List<AuthorizedUserVO>) authorizedUserVORepository.findAll();	
 		AuthorizedUserVO authorizedUserVO = authorizedUserVOList.get(0);
 		AuthorizedUser authorizedUser = new AuthorizedUser();
 		authorizedUser.setId(authorizedUserVO.getHostReference());
 		authorizedUser.setPassword(authorizedUserVO.getPassword());
 		authorizedUser.setSalt(authorizedUserVO.getSalt());
-		authorizedUser.setType(
-				authorizationTypeVOToAuthorizationTypeConverterUtil.convert(authorizedUserVO.getAuthorizationTypeVO()));
 		authorizedUser.setUserName(authorizedUserVO.getUserNameVO().getUserName());
-		
-		Assert.assertEquals(authorizedUserVOToAuthorizedUserConvertUtil.convert(authorizedUserVO),
+		Assert.assertEquals(authorizedUserBuilder.convert(authorizedUserVO),
 				authorizedUserService.getAuthorizedUserByHostreference(authorizedUserVO.getHostReference()));
 
 	}

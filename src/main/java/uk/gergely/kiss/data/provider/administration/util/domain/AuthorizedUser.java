@@ -8,9 +8,27 @@ public class AuthorizedUser {
 	private String salt;
 	private String password;
 	private String userName;
-	private AuthorizationType type;
-
+	private Role role;
 	
+	/**
+	 * 
+	 */
+	public AuthorizedUser() {
+	}
+	/**
+	 * @param id
+	 * @param salt
+	 * @param password
+	 * @param userName
+	 * @param type
+	 */
+	public AuthorizedUser(String id, String salt, String password, String userName, Role role) {
+		this.id = id;
+		this.salt = salt;
+		this.password = password;
+		this.userName = userName;
+		this.role = role;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -25,8 +43,8 @@ public class AuthorizedUser {
 		builder.append(password);
 		builder.append(", userName=");
 		builder.append(userName);
-		builder.append(", type=");
-		builder.append(type);
+		builder.append(", role=");
+		builder.append(role);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -35,7 +53,7 @@ public class AuthorizedUser {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, password, salt, type, userName);
+		return Objects.hash(id, password, salt, role, userName);
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -53,7 +71,7 @@ public class AuthorizedUser {
 		}
 		AuthorizedUser other = (AuthorizedUser) obj;
 		return Objects.equals(id, other.id) && Objects.equals(password, other.password)
-				&& Objects.equals(salt, other.salt) && Objects.equals(type, other.type)
+				&& Objects.equals(salt, other.salt) && Objects.equals(role, other.role)
 				&& Objects.equals(userName, other.userName);
 	}
 	/**
@@ -107,13 +125,13 @@ public class AuthorizedUser {
 	/**
 	 * @return the type
 	 */
-	public AuthorizationType getType() {
-		return type;
+	public Role getRole() {
+		return role;
 	}
 	/**
 	 * @param type the type to set
 	 */
-	public void setType(AuthorizationType type) {
-		this.type = type;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 }

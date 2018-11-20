@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -18,6 +20,7 @@ import javax.persistence.Table;
 public class AuthorizedUserVO {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 
 	@Column(name = "host_reference")
@@ -30,7 +33,7 @@ public class AuthorizedUserVO {
 	private UserNameVO userNameVO;
 	@OneToOne
 	@JoinColumn(name = "id")
-	private AuthorizationTypeVO authorizationTypeVO;
+	private UserRoleVO userRoleVO;
 	
 	
 
@@ -46,18 +49,18 @@ public class AuthorizedUserVO {
 	 * @param salt
 	 * @param password
 	 * @param userNameVO
-	 * @param authorizationTypeVO
+	 * @param userRoleVO
 	 */
 	
 	
 	public AuthorizedUserVO(Integer id, String hostReference, String salt, String password, UserNameVO userNameVO,
-			AuthorizationTypeVO authorizationTypeVO) {
+			UserRoleVO userRoleVO) {
 		this.id = id;
 		this.hostReference = hostReference;
 		this.salt = salt;
 		this.password = password;
 		this.userNameVO = userNameVO;
-		this.authorizationTypeVO = authorizationTypeVO;
+		this.userRoleVO = userRoleVO;
 	}
 
 	/**
@@ -65,15 +68,15 @@ public class AuthorizedUserVO {
 	 * @param salt
 	 * @param password
 	 * @param userNameVO
-	 * @param authorizationTypeVO
+	 * @param userRoleVO
 	 */
 	public AuthorizedUserVO(Integer id, String salt, String password, UserNameVO userNameVO,
-			AuthorizationTypeVO authorizationTypeVO) {
+			UserRoleVO userRoleVO) {
 		this.id = id;
 		this.salt = salt;
 		this.password = password;
 		this.userNameVO = userNameVO;
-		this.authorizationTypeVO = authorizationTypeVO;
+		this.userRoleVO = userRoleVO;
 	}
 
 	/*
@@ -94,8 +97,8 @@ public class AuthorizedUserVO {
 		builder.append(password);
 		builder.append(", userNameVO=");
 		builder.append(userNameVO);
-		builder.append(", authorizationTypeVO=");
-		builder.append(authorizationTypeVO);
+		builder.append(", userRoleVO=");
+		builder.append(userRoleVO);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -107,7 +110,7 @@ public class AuthorizedUserVO {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(authorizationTypeVO, hostReference, id, password, salt, userNameVO);
+		return Objects.hash(userRoleVO, hostReference, id, password, salt, userNameVO);
 	}
 
 	/*
@@ -127,7 +130,7 @@ public class AuthorizedUserVO {
 			return false;
 		}
 		AuthorizedUserVO other = (AuthorizedUserVO) obj;
-		return Objects.equals(authorizationTypeVO, other.authorizationTypeVO)
+		return Objects.equals(userRoleVO, other.userRoleVO)
 				&& Objects.equals(hostReference, other.hostReference) && Objects.equals(id, other.id)
 				&& Objects.equals(password, other.password) && Objects.equals(salt, other.salt)
 				&& Objects.equals(userNameVO, other.userNameVO);
@@ -204,17 +207,17 @@ public class AuthorizedUserVO {
 	}
 
 	/**
-	 * @return the authorizationTypeVO
+	 * @return the userRoleVO
 	 */
-	public AuthorizationTypeVO getAuthorizationTypeVO() {
-		return authorizationTypeVO;
+	public UserRoleVO getUserRoleVO() {
+		return userRoleVO;
 	}
 
 	/**
-	 * @param authorizationTypeVO the authorizationTypeVO to set
+	 * @param userRoleVO the userRoleVO to set
 	 */
-	public void setAuthorizationTypeVO(AuthorizationTypeVO authorizationTypeVO) {
-		this.authorizationTypeVO = authorizationTypeVO;
+	public void setUserRoleVO(UserRoleVO userRoleVO) {
+		this.userRoleVO = userRoleVO;
 	}
 
 }

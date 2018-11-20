@@ -1,2 +1,2 @@
-INSERT IGNORE INTO `user_roles` (`name`) VALUES ('AUTHORIZATION');
-INSERT IGNORE INTO `user_roles` (`name`) VALUES ('USER');
+INSERT IGNORE INTO `authorization_types` (`name`) VALUES ('AUTHORIZATION');
+INSERT IGNORE INTO `authorization_types` (`name`) VALUES ('USER');

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -25,14 +27,15 @@ public class AuthorizationTypeVOUserRoleVOPermissionVO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1_000_000L;
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
 	@OneToOne
 	@JoinColumn(name = "authorization_type_id")
-	private AuthorizationTypeVO authorizationTypeVO;
+	private UserRoleVO userRoleVO;
 	@OneToOne
 	@JoinColumn(name = "user_role_id")
-	private UserRoleVO userRoleVO;
+	private AuthorizationTypeVO authorizationTypeVO;
 	private String permission;
 
 	/**
@@ -43,36 +46,16 @@ public class AuthorizationTypeVOUserRoleVOPermissionVO implements Serializable {
 
 	/**
 	 * @param id
-	 * @param authorizationTypeVO
 	 * @param userRoleVO
+	 * @param authorizationTypeVO
 	 * @param permission
 	 */
-	public AuthorizationTypeVOUserRoleVOPermissionVO(Integer id, AuthorizationTypeVO authorizationTypeVO,
-			UserRoleVO userRoleVO, String permission) {
+	public AuthorizationTypeVOUserRoleVOPermissionVO(Integer id, UserRoleVO userRoleVO,
+			AuthorizationTypeVO authorizationTypeVO, String permission) {
 		this.id = id;
-		this.authorizationTypeVO = authorizationTypeVO;
 		this.userRoleVO = userRoleVO;
+		this.authorizationTypeVO = authorizationTypeVO;
 		this.permission = permission;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("AuthorizationTypeVOUserRoleVOPermissionVO [id=");
-		builder.append(id);
-		builder.append(", authorizationTypeVO=");
-		builder.append(authorizationTypeVO);
-		builder.append(", userRoleVO=");
-		builder.append(userRoleVO);
-		builder.append(", permission=");
-		builder.append(permission);
-		builder.append("]");
-		return builder.toString();
 	}
 
 	/*
@@ -92,18 +75,35 @@ public class AuthorizationTypeVOUserRoleVOPermissionVO implements Serializable {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
+		if (this == obj)
 			return true;
-		}
-		if (obj == null) {
+		if (obj == null)
 			return false;
-		}
-		if (!(obj instanceof AuthorizationTypeVOUserRoleVOPermissionVO)) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
 		AuthorizationTypeVOUserRoleVOPermissionVO other = (AuthorizationTypeVOUserRoleVOPermissionVO) obj;
 		return Objects.equals(authorizationTypeVO, other.authorizationTypeVO) && Objects.equals(id, other.id)
 				&& Objects.equals(permission, other.permission) && Objects.equals(userRoleVO, other.userRoleVO);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("AuthorizationTypeVOUserRoleVOPermissionVO [id=");
+		builder.append(id);
+		builder.append(", userRoleVO=");
+		builder.append(userRoleVO);
+		builder.append(", authorizationTypeVO=");
+		builder.append(authorizationTypeVO);
+		builder.append(", permission=");
+		builder.append(permission);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	/**
@@ -121,20 +121,6 @@ public class AuthorizationTypeVOUserRoleVOPermissionVO implements Serializable {
 	}
 
 	/**
-	 * @return the authorizationTypeVO
-	 */
-	public AuthorizationTypeVO getAuthorizationTypeVO() {
-		return authorizationTypeVO;
-	}
-
-	/**
-	 * @param authorizationTypeVO the authorizationTypeVO to set
-	 */
-	public void setAuthorizationTypeVO(AuthorizationTypeVO authorizationTypeVO) {
-		this.authorizationTypeVO = authorizationTypeVO;
-	}
-
-	/**
 	 * @return the userRoleVO
 	 */
 	public UserRoleVO getUserRoleVO() {
@@ -146,6 +132,20 @@ public class AuthorizationTypeVOUserRoleVOPermissionVO implements Serializable {
 	 */
 	public void setUserRoleVO(UserRoleVO userRoleVO) {
 		this.userRoleVO = userRoleVO;
+	}
+
+	/**
+	 * @return the authorizationTypeVO
+	 */
+	public AuthorizationTypeVO getAuthorizationTypeVO() {
+		return authorizationTypeVO;
+	}
+
+	/**
+	 * @param authorizationTypeVO the authorizationTypeVO to set
+	 */
+	public void setAuthorizationTypeVO(AuthorizationTypeVO authorizationTypeVO) {
+		this.authorizationTypeVO = authorizationTypeVO;
 	}
 
 	/**
@@ -161,12 +161,4 @@ public class AuthorizationTypeVOUserRoleVOPermissionVO implements Serializable {
 	public void setPermission(String permission) {
 		this.permission = permission;
 	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 }

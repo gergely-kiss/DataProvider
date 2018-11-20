@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -15,15 +17,15 @@ import javax.persistence.UniqueConstraint;
  *
  */
 @Entity
-@Table(name = "user_names", uniqueConstraints = @UniqueConstraint(columnNames = { "host_reference", "user_name" }))
+@Table(name = "user_names", uniqueConstraints = @UniqueConstraint(columnNames = { "user_name" }))
 public class UserNameVO {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@Column(name = "host_reference")
-	private String hostReference;
 	@Column(name = "user_name")
 	private String userName;
 
+	
 	/**
 	 * 
 	 */
@@ -35,9 +37,7 @@ public class UserNameVO {
 	 * @param hostReference
 	 * @param userName
 	 */
-	public UserNameVO(Integer id, String hostReference, String userName) {
-		this.id = id;
-		this.hostReference = hostReference;
+	public UserNameVO(String userName) {
 		this.userName = userName;
 	}
 
@@ -51,8 +51,6 @@ public class UserNameVO {
 		StringBuilder builder = new StringBuilder();
 		builder.append("UserNameVO [id=");
 		builder.append(id);
-		builder.append(", hostReference=");
-		builder.append(hostReference);
 		builder.append(", userName=");
 		builder.append(userName);
 		builder.append("]");
@@ -66,7 +64,7 @@ public class UserNameVO {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(hostReference, id, userName);
+		return Objects.hash(userName);
 	}
 
 	/*
@@ -86,8 +84,7 @@ public class UserNameVO {
 			return false;
 		}
 		UserNameVO other = (UserNameVO) obj;
-		return Objects.equals(hostReference, other.hostReference) && Objects.equals(id, other.id)
-				&& Objects.equals(userName, other.userName);
+		return  Objects.equals(userName, other.userName);
 	}
 
 	/**
@@ -102,20 +99,6 @@ public class UserNameVO {
 	 */
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	/**
-	 * @return the hostReference
-	 */
-	public String getHostReference() {
-		return hostReference;
-	}
-
-	/**
-	 * @param hostReference the hostReference to set
-	 */
-	public void setHostReference(String hostReference) {
-		this.hostReference = hostReference;
 	}
 
 	/**

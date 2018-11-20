@@ -1,3 +1,4 @@
+
 package uk.gergely.kiss.data.provider.administration.service;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import uk.gergely.kiss.data.provider.administration.model.AuthorizedUserVO;
 import uk.gergely.kiss.data.provider.administration.repositories.AuthorizedUserVORepository;
-import uk.gergely.kiss.data.provider.administration.util.AuthorizedUserVOToAuthorizedUserConvertUtil;
+import uk.gergely.kiss.data.provider.administration.util.AuthorizedUserBuilder;
 import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizedUser;
 
 @Service
@@ -18,7 +19,7 @@ public class AuthorizedUserServiceImpl implements AuthorizedUserService {
 	private AuthorizedUserVORepository repo;
 
 	@Autowired
-	private AuthorizedUserVOToAuthorizedUserConvertUtil converter;
+	private AuthorizedUserBuilder converter;
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizedUserService.class);
 

@@ -13,7 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizedUserVO;
 import uk.gergely.kiss.data.provider.administration.repositories.AuthorizedUserVORepository;
 import uk.gergely.kiss.data.provider.administration.service.AuthorizedUserService;
-import uk.gergely.kiss.data.provider.administration.util.AuthorizedUserVOToAuthorizedUserConvertUtil;
+import uk.gergely.kiss.data.provider.administration.util.AuthorizedUserBuilder;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,11 +26,11 @@ public class AuthorizedUserServiceTest {
 	@Autowired
 	private AuthorizedUserVORepository authorizedUserVORepository;
 	@Autowired
-	private AuthorizedUserVOToAuthorizedUserConvertUtil authorizedUserVOToAuthorizedUserConvertUtil;
+	private AuthorizedUserBuilder authorizedUserBuilder;
 
 	@Test
 	public void getAuthorizedUserList() {
-		Assert.assertEquals(authorizedUserService.getAuthorizedUserList(), authorizedUserVOToAuthorizedUserConvertUtil
+		Assert.assertEquals(authorizedUserService.getAuthorizedUserList(), authorizedUserBuilder
 				.convert((List<AuthorizedUserVO>) authorizedUserVORepository.findAll()));
 	}
 
@@ -37,7 +38,7 @@ public class AuthorizedUserServiceTest {
 	public void getAuthorizedUserByHostreference() {
 		List<AuthorizedUserVO> authorizedUserVOList = (List<AuthorizedUserVO>) authorizedUserVORepository.findAll();
 		AuthorizedUserVO authorizedUserVO = authorizedUserVOList.get(0);
-		Assert.assertEquals(authorizedUserVOToAuthorizedUserConvertUtil.convert(authorizedUserVO),
+		Assert.assertEquals(authorizedUserBuilder.convert(authorizedUserVO),
 				authorizedUserService.getAuthorizedUserByHostreference(authorizedUserVO.getHostReference()));
 
 	}
