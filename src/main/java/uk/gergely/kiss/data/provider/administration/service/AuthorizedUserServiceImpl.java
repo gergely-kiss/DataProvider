@@ -15,10 +15,10 @@ import uk.gergely.kiss.data.provider.administration.util.domain.AuthorizedUser;
 @Service
 public class AuthorizedUserServiceImpl implements AuthorizedUserService {
 	@Autowired
-	AuthorizedUserVORepository repo;
+	private AuthorizedUserVORepository repo;
 
 	@Autowired
-	AuthorizedUserVOToAuthorizedUserConvertUtil converter;
+	private AuthorizedUserVOToAuthorizedUserConvertUtil converter;
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(AuthorizedUserService.class);
 
@@ -27,7 +27,18 @@ public class AuthorizedUserServiceImpl implements AuthorizedUserService {
 		LOGGER.info("getAuthorizedUserList was called");
 		List<AuthorizedUserVO> authorizedUserVOList = (List<AuthorizedUserVO>) repo.findAll();
 		LOGGER.info("getAuthorizedUserList: authorizedUserVOList: {} ", authorizedUserVOList);
-		List<AuthorizedUser> authorizedUser = converter.convert(authorizedUserVOList);
+		List<AuthorizedUser> authorizedUserList = converter.convert(authorizedUserVOList);
+		LOGGER.info("getAuthorizedUserList: authorizedUserList: {} ", authorizedUserList);
+		return authorizedUserList;
+	}
+
+	@Override
+	public AuthorizedUser getAuthorizedUserByHostreference(String hostreference) {
+		LOGGER.info("getAuthorizedUserByHostreference was called by hostreference: {} ", hostreference);
+		AuthorizedUserVO authorizedUserVO = repo.findAuthorizedUserVOByHostReference(hostreference);
+		LOGGER.info("getAuthorizedUserByHostreference: authorizedUserVO: {} ", authorizedUserVO);
+		AuthorizedUser authorizedUser = converter.convert(authorizedUserVO);  
+		LOGGER.info("getAuthorizedUserByHostreference: authorizedUser: {} ", authorizedUser);
 		return authorizedUser;
 	}
 }

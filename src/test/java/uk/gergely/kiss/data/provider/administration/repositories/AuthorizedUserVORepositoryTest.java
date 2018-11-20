@@ -1,5 +1,7 @@
 package uk.gergely.kiss.data.provider.administration.repositories;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,12 +47,24 @@ public class AuthorizedUserVORepositoryTest {
 				.findById(AdministrationTestConstants.TEST_AUTHORIZED_USER_VO.getId()).get();
 		Assert.assertEquals(savedAuthorizedUserVO, AdministrationTestConstants.TEST_AUTHORIZED_USER_VO);
 	}
-	
+
 	@Test
 	public void isDefaultUserExist() {
 
 		AuthorizedUserVO savedAuthorizedUserVO = authorizedUserVORepository
 				.findById(AdministrationTestConstants.DEFAULT_AUTHORIZED_USER_VO.getId()).get();
 		Assert.assertEquals(savedAuthorizedUserVO, AdministrationTestConstants.DEFAULT_AUTHORIZED_USER_VO);
+	}
+
+	@Test
+	public void getAuthorizedUserByHostreference() {
+		List<AuthorizedUserVO> authorizedUserVOList = (List<AuthorizedUserVO>) authorizedUserVORepository.findAll();
+		AuthorizedUserVO authorizedUserVO = authorizedUserVOList.get(0);
+		Assert.assertEquals(authorizedUserVO,
+				authorizedUserVORepository.findAuthorizedUserVOByHostReference(authorizedUserVO.getHostReference()));
+	}
+	@Test
+	public void getAuthorizedUserList() {
+		Assert.assertNotNull((List<AuthorizedUserVO>) authorizedUserVORepository.findAll());
 	}
 }

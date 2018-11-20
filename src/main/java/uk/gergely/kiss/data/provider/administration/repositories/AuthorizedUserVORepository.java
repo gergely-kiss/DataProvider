@@ -4,4 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 import uk.gergely.kiss.data.provider.administration.model.AuthorizedUserVO;
 public interface AuthorizedUserVORepository extends CrudRepository<AuthorizedUserVO, Integer>{
 
+	AuthorizedUserVO findAuthorizedUserVOByHostReference(String hostreference);
+
 }
